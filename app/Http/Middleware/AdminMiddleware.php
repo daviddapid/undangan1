@@ -19,7 +19,7 @@ class AdminMiddleware
         $user = Auth::user();
 
         if ($user == null)
-            return redirect()->route('admin.login');
+            return redirect()->route('backoffice.login');
         elseif ($user->role == 'guest')
             return response('', 403);
         elseif ($user->role == 'admin' || $user->role == 'superadmin')

@@ -1,6 +1,7 @@
-@extends('admin.layouts.app')
+@extends('backoffice.layouts.app')
+@section('nav-dashboard', 'active')
 @section('script')
-  <script src="admin/myJs/guest-chart.js"></script>
+  <script src="backoffice/myJs/guest-chart.js"></script>
   <script>
     $(document).ready(function() {
       $('#myTable').DataTable({
@@ -29,8 +30,8 @@
             </div>
             <div class="col-sm-5 text-center text-sm-left">
               <div class="card-body pb-0 px-0 px-md-4">
-                <img src="admin/assets/img/illustrations/man-with-laptop-light.png" height="140" alt="View Badge User"
-                  data-app-dark-img="illustrations/man-with-laptop-dark.png"
+                <img src="backoffice/assets/img/illustrations/man-with-laptop-light.png" height="140"
+                  alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png"
                   data-app-light-img="illustrations/man-with-laptop-light.png" />
               </div>
             </div>
@@ -44,7 +45,8 @@
               <div class="card-body">
                 <div class="card-title d-flex align-items-start justify-content-between">
                   <div class="avatar flex-shrink-0">
-                    <img src="admin/assets/img/icons/unicons/chart-success.png" alt="chart success" class="rounded" />
+                    <img src="backoffice/assets/img/icons/unicons/chart-success.png" alt="chart success"
+                      class="rounded" />
                   </div>
                   <div class="dropdown">
                     <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -68,7 +70,7 @@
               <div class="card-body">
                 <div class="card-title d-flex align-items-start justify-content-between">
                   <div class="avatar flex-shrink-0">
-                    <img src="admin/assets/img/icons/unicons/wallet-info.png" alt="Credit Card" class="rounded" />
+                    <img src="backoffice/assets/img/icons/unicons/wallet-info.png" alt="Credit Card" class="rounded" />
                   </div>
                   <div class="dropdown">
                     <button class="btn p-0" type="button" id="cardOpt6" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -236,7 +238,7 @@
               <div class="card-body">
                 <div class="card-title d-flex align-items-start justify-content-between">
                   <div class="avatar flex-shrink-0">
-                    <img src="admin/assets/img/icons/unicons/paypal.png" alt="Credit Card" class="rounded" />
+                    <img src="backoffice/assets/img/icons/unicons/paypal.png" alt="Credit Card" class="rounded" />
                   </div>
                   <div class="dropdown">
                     <button class="btn p-0" type="button" id="cardOpt4" data-bs-toggle="dropdown"
@@ -260,7 +262,7 @@
               <div class="card-body">
                 <div class="card-title d-flex align-items-start justify-content-between">
                   <div class="avatar flex-shrink-0">
-                    <img src="admin/assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
+                    <img src="backoffice/assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
                   </div>
                   <div class="dropdown">
                     <button class="btn p-0" type="button" id="cardOpt1" data-bs-toggle="dropdown"
@@ -419,7 +421,7 @@
               <div class="tab-pane fade show active" id="navs-tabs-line-card-income" role="tabpanel">
                 <div class="d-flex p-4 pt-3">
                   <div class="avatar flex-shrink-0 me-3">
-                    <img src="admin/assets/img/icons/unicons/wallet.png" alt="User" />
+                    <img src="backoffice/assets/img/icons/unicons/wallet.png" alt="User" />
                   </div>
                   <div>
                     <small class="text-muted d-block">Total Balance</small>
@@ -470,7 +472,7 @@
             <ul class="p-0 m-0">
               <li class="d-flex mb-4 pb-1">
                 <div class="avatar flex-shrink-0 me-3">
-                  <img src="admin/assets/img/icons/unicons/paypal.png" alt="User" class="rounded" />
+                  <img src="backoffice/assets/img/icons/unicons/paypal.png" alt="User" class="rounded" />
                 </div>
                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                   <div class="me-2">
@@ -485,7 +487,7 @@
               </li>
               <li class="d-flex mb-4 pb-1">
                 <div class="avatar flex-shrink-0 me-3">
-                  <img src="admin/assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
+                  <img src="backoffice/assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
                 </div>
                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                   <div class="me-2">
@@ -500,7 +502,7 @@
               </li>
               <li class="d-flex mb-4 pb-1">
                 <div class="avatar flex-shrink-0 me-3">
-                  <img src="admin/assets/img/icons/unicons/chart.png" alt="User" class="rounded" />
+                  <img src="backoffice/assets/img/icons/unicons/chart.png" alt="User" class="rounded" />
                 </div>
                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                   <div class="me-2">
@@ -515,7 +517,7 @@
               </li>
               <li class="d-flex mb-4 pb-1">
                 <div class="avatar flex-shrink-0 me-3">
-                  <img src="admin/assets/img/icons/unicons/cc-success.png" alt="User" class="rounded" />
+                  <img src="backoffice/assets/img/icons/unicons/cc-success.png" alt="User" class="rounded" />
                 </div>
                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                   <div class="me-2">
@@ -530,7 +532,7 @@
               </li>
               <li class="d-flex mb-4 pb-1">
                 <div class="avatar flex-shrink-0 me-3">
-                  <img src="admin/assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
+                  <img src="backoffice/assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
                 </div>
                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                   <div class="me-2">
@@ -545,7 +547,7 @@
               </li>
               <li class="d-flex">
                 <div class="avatar flex-shrink-0 me-3">
-                  <img src="admin/assets/img/icons/unicons/cc-warning.png" alt="User" class="rounded" />
+                  <img src="backoffice/assets/img/icons/unicons/cc-warning.png" alt="User" class="rounded" />
                 </div>
                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                   <div class="me-2">

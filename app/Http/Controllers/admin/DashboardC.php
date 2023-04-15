@@ -14,7 +14,7 @@ class DashboardC extends Controller
             ->latest()
             ->with('user')
             ->get();
-        return view('admin.dashboard', compact('guests'));
+        return view('backoffice.dashboard', compact('guests'));
     }
     public function listGuest()
     {
@@ -22,6 +22,11 @@ class DashboardC extends Controller
             ->latest()
             ->with('user')
             ->get();
-        return view('admin.list-guests', compact('guests'));
+        return view('backoffice.list-guests', compact('guests'));
+    }
+    public function scanQr()
+    {
+        $guests = Guest::query()->where('is_present', true)->latest()->get();
+        return view('backoffice.scan-qr', compact('guests'));
     }
 }

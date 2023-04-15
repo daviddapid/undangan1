@@ -10,7 +10,7 @@ class AuthC extends Controller
 {
     public function login()
     {
-        return view('admin.login');
+        return view('backoffice.login');
     }
     public function loginAction(Request $request)
     {
@@ -23,7 +23,7 @@ class AuthC extends Controller
         if (Auth::attempt([...$credentials, 'role' => ['admin', 'superadmin']])) {
             $request->session()->regenerate();
 
-            return redirect()->intended()->route('dashboard');
+            return redirect()->route('dashboard');
         }
 
         return back()->with('failed', 'Harap Masukan Data Yang Benar');

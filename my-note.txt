@@ -1,0 +1,27 @@
+terakhir sadar kalau lebih baik entitas "chairs / kursi" dibuat tabel tersendiri. Lalu untuk kolom 'nomor_kursi' yang ada di tabel "guests" itu bakal relasi dengan tabel "chairs";
+
+-sebelumnya untuk set nomor kursi, cukup klik td 'nomor kursi' 2x maka muncul <input "text">, lalu tinggal inputin value nya dan klik enter maka bakal kirim request, dan semua itu berjalan secara ajax;
+
+-sekarang konsepnya, waktu klik <td 'nomor kursi'> maka bakal muncul modal yang berisikan daftar kursi yang masih kosong dan ini sifat nya checkbox (bisa klik beberapa kursi) karena dalam satu entitas "guest" bisa punya grup beberapa orang;
+
+=============================
+-terakhir sampai fitur "set kursi tamu",
+--masalah :
+    1. itu modal kan mirip modal edit, dimana ada data lama yang harus dipasing. nah permasalahanya gimana cara nge set data lama itu melalui javascript karena kamu gk mau ada pengulangan modal yang berlebih
+
+============================
+-nomor kursi masih belom dapat ditamplikan saat percobaan pertama, tapi percobaan kedua muncul
+
+IDE BARU NIH
+tentang ngatur nomor kursi
+
+user(yang punya hajat) nge set kursi untuk beberapa orang khusus misal kerabatnya. tapi untuk tamu undangan yang biasa, user tinggal klik "generate kursi untuk tamu". 
+
+STATUS KURSI 
+1 : kosong (putih)
+2 : telah di reservasi (grey)
+3 : telah di set untuk guest saat ini (waktu edit / set kursi) (ijo)
+4 : telah diduduki (blue) ini ambil dari [chair->guest->is_present]
+
+=============
+terakhir sampai di atas itu + gimana sama crud chair nya ? lalu ide baru nih misal kalau abis "generate kursi for user", lalu ada user yg gk kebagian kursi gimana?

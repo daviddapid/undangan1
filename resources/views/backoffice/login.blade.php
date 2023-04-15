@@ -1,4 +1,4 @@
-@extends('admin.layouts.auth')
+@extends('backoffice.layouts.auth')
 @section('content')
   <div class="card">
     <div class="card-body">
@@ -56,7 +56,7 @@
       {{-- <h4 class="mb-2">Welcome to Dashboard UndanganKu 👋</h4>
       <p class="mb-4">Please sign-in to your account and start the adventure</p> --}}
 
-      <form id="formAuthentication" class="mb-3" action="{{ route('admin.login.action') }}" method="POST">
+      <form id="formAuthentication" class="mb-3" action="{{ route('backoffice.login.action') }}" method="POST">
         @csrf
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>

@@ -123,13 +123,14 @@
           <form method="post" action="{{ route('rsvp.store') }}" class="contact-validation-active">
             @csrf
             <div>
-              <input type="text" class="form-control" name="name" id="name" placeholder="Name" />
+              <input type="text" class="form-control" name="name" id="name" placeholder="Name" required />
             </div>
             <div>
-              <input type="number" class="form-control" name="phone" id="phone" placeholder="Phone Number" />
+              <input type="number" class="form-control" name="phone" id="phone" placeholder="Phone Number"
+                required />
             </div>
             <div>
-              <select name="number_of_person" class="form-control">
+              <select name="number_of_person" class="form-control" required>
                 <option disabled="disabled" selected>
                   Number Of Guests
                 </option>

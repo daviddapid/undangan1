@@ -57,22 +57,34 @@
 
   <ul class="menu-inner py-1">
     <!-- Dashboard -->
-    <li class="menu-item active">
+    <li class="menu-item @yield('nav-dashboard')">
       <a href="index.html" class="menu-link">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
         <div data-i18n="Analytics">Dashboard</div>
       </a>
     </li>
-    <li class="menu-item">
-      <a href="cards-basic.html" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-collection"></i>
+    <li class="menu-item @yield('nav-tamu-undangan')">
+      <a href="{{ route('tamu-undangan') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-group"></i>
         <div data-i18n="Basic">Tamu Undangan</div>
       </a>
     </li>
-    <li class="menu-item">
+    <li class="menu-item @yield('nav-ucapan')">
       <a href="cards-basic.html" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-collection"></i>
+        <i class="menu-icon tf-icons bx bx-message-dots"></i>
         <div data-i18n="Basic">Kelola Ucapan</div>
+      </a>
+    </li>
+    <li class="menu-item @yield('nav-scan-qr')">
+      <a href="{{ route('scan') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-qr-scan"></i>
+        <div data-i18n="Basic">Scan QR</div>
+      </a>
+    </li>
+    <li class="menu-item @yield('nav-chair-list')">
+      <a href="{{ route('chair.list') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-chair"></i>
+        <div data-i18n="Basic">Daftar Kursi</div>
       </a>
     </li>
 

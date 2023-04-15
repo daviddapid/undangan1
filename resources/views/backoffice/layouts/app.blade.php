@@ -1,9 +1,9 @@
-@include('admin.layouts.templates.head')
+@include('backoffice.layouts.templates.head')
 <!-- Layout wrapper -->
 <div class="layout-wrapper layout-content-navbar">
   <div class="layout-container">
     <!-- Menu sidebar -->
-    @include('admin.layouts.templates.sidebar')
+    @include('backoffice.layouts.templates.sidebar')
     <!-- / Menu sidebar -->
 
     <!-- Layout container -->
@@ -40,7 +40,7 @@
             <li class="nav-item navbar-dropdown dropdown-user dropdown">
               <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                 <div class="avatar avatar-online">
-                  <img src="admin/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                  <img src="backoffice/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                 </div>
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
@@ -49,7 +49,7 @@
                     <div class="d-flex">
                       <div class="flex-shrink-0 me-3">
                         <div class="avatar avatar-online">
-                          <img src="admin/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                          <img src="backoffice/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                         </div>
                       </div>
                       <div class="flex-grow-1">
@@ -107,7 +107,7 @@
         <!-- / Content -->
 
         <!-- Footer -->
-        @include('admin.layouts.templates.footer')
+        @include('backoffice.layouts.templates.footer')
         <!-- / Footer -->
 
         <div class="content-backdrop fade"></div>
@@ -121,4 +121,4 @@
   <div class="layout-overlay layout-menu-toggle"></div>
 </div>
 <!-- / Layout wrapper -->
-@include('admin.layouts.templates.foot')
+@include('backoffice.layouts.templates.foot')
