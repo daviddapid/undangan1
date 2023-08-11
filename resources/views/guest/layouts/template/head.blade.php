@@ -28,7 +28,7 @@
   <link href="guest/assets/css/jquery.fancybox.css" rel="stylesheet">
   <link href="guest/assets/css/odometer-theme-default.css" rel="stylesheet">
   <link href="guest/assets/sass/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 
   <link rel="manifest" href="/manifest.json">
 
@@ -36,13 +36,17 @@
     html {
       scroll-behavior: smooth !important;
     }
-    .shadow{
-      box-shadow: 0 5px 9px #80808033;
+
+    .shadow {
+      box-shadow: 0 5px 9px #80808033 !important;
     }
-    .card{
+
+    .card {
       border-radius: 15px;
     }
   </style>
+
+  @yield('head')
 </head>
 
 <body>
