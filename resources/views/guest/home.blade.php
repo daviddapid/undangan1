@@ -14,7 +14,7 @@
   @include('guest.sections.team')
   @include('guest.sections.event')
   @include('guest.sections.partner')
-  @include('guest.sections.blog')
+  @include('guest.sections.comment')
 
 
 
@@ -39,6 +39,3 @@
     </div>
   </div>
 @endsection
-
-@push('scripts')
-@endpush

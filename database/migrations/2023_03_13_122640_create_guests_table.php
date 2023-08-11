@@ -18,8 +18,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->enum('status', ['attend', 'absent', 'pending']);
             $table->boolean('is_present')->default(false);
-            $table->string('nomor_kursi')->nullable();
-            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(User::class)->constrained();
             $table->timestamps();
         });
     }

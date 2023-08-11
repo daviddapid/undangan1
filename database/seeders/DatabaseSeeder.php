@@ -31,6 +31,9 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'role' => 'superadmin'
         ]);
+    }
+    
+    private function generate30Guest() {
         for ($i = 4; $i <= 30; $i++) {
             User::create([
                 'name' => 'tamu' . $i,
@@ -45,22 +48,5 @@ class DatabaseSeeder extends Seeder
                 'user_id' => $i
             ]);
         }
-
-        $huruf = 'A';
-        for ($i = 1; $i <= 50; $i++) {
-            if ($i % 10 == 0) {
-                $huruf++;
-            }
-            Chair::create([
-                'number' => $huruf . $i,
-            ]);
-        }
-
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

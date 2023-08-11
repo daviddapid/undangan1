@@ -112,20 +112,23 @@
 
 <!-- All JavaScript files
     ================================================== -->
-<script src="guest/assets/js/jquery.min.js"></script>
-<script src="guest/assets/js/bootstrap.bundle.min.js"></script>
+<script src="{{  asset('guest/assets/js/jquery.min.js')}}"></script>
+<script src="{{  asset('guest/assets/js/bootstrap.bundle.min.js')}}"></script>
 <!-- Plugins for this template -->
-<script src="guest/assets/js/modernizr.custom.js"></script>
-<script src="guest/assets/js/jquery.dlmenu.js"></script>
-<script src="guest/assets/js/jquery-plugin-collection.js"></script>
+<script src="{{  asset('guest/assets/js/modernizr.custom.js')}}"></script>
+<script src="{{  asset('guest/assets/js/jquery.dlmenu.js')}}"></script>
+<script src="{{  asset('guest/assets/js/jquery-plugin-collection.js')}}"></script>
 <!-- Moving Animation -->
-<script src="guest/assets/js/moving-animation.js"></script>
+<script src="{{  asset('guest/assets/js/moving-animation.js')}}"></script>
 <!-- Custom script for this template -->
-<script src="guest/assets/js/script.js"></script>
+<script src="{{  asset('guest/assets/js/script.js')}}"></script>
 
-<script src="guest/js/backsound.js"></script>
 
-@stack('scripts')
+<script src="{{  asset('guest/js/backsound.js')}}"></script>
+
+@yield('scripts')
+
+@stack('script')
 </body>
 
 
