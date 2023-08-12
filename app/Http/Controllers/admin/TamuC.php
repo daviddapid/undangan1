@@ -15,14 +15,10 @@ class TamuC extends Controller
             ->latest()
             ->with('user')
             ->get();
-        $chairs = Chair::all();
 
-        $guests_no_chair = Guest::query()->where('status', 'attend')->doesntHave('chairs')->get();
-        $empty_chairs = Chair::query()->where('guest_id', null)->get();
-        // ketersediaan kursi minus dari tamu yang tdk punya kursi ? maka return back
-        $selisih_kursi_tamu = $empty_chairs->count() - $guests_no_chair->sum('number_of_person');
+        $guests_no_chair = Guest::query()->where('status', 'attend')->get();
 
-        return view('backoffice.tamu.list-guests', compact('guests', 'chairs', 'selisih_kursi_tamu'));
+        return view('backoffice.tamu.list-guests', compact('guests'));
     }
     public function qrCode(Guest $guest)
     {

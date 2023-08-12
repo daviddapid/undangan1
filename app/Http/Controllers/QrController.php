@@ -29,16 +29,6 @@ class QrController extends Controller
             ];
         }
 
-        // ini masih dipikir kemungkinan gk dipakek
-        if ($guest->chairs->count() < 1) {
-            $empty_chairs = Chair::where('guest_id', null)->get();
-            for ($i = 1; $i <= $guest->number_of_person; $i++) {
-                $c_empty = $empty_chairs[$i - 1];
-                $c_empty->guest_id = $guest->id;
-                $c_empty->save();
-            }
-        }
-
         if ($guest->is_present) {
             return [
                 'status' => 'already-scanned',

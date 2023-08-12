@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AuthC;
 use App\Http\Controllers\admin\ChairController;
+use App\Http\Controllers\admin\CommentC;
 use App\Http\Controllers\admin\DashboardC;
 use App\Http\Controllers\admin\TamuC;
 use App\Http\Controllers\guest\HomeC;
@@ -28,6 +29,7 @@ use PhpParser\Node\Stmt\Return_;
 Route::get('/', [HomeC::class, 'index'])->name('home');
 Route::post('/attendance-confirmation', [RsvpC::class, 'store'])->name('rsvp.store');
 Route::get('/my-qrcode', [QrController::class, 'index'])->name('my-qr');
+Route::post('/send-comment', [HomeC::class, 'sendComment'])->name('send-comment');
 
 // ==================
 //    User Admin
@@ -50,13 +52,10 @@ Route::middleware('admin')->prefix('admin')->group(function () {
         Route::get('/tamu-undangan/{guest}/qr-code', 'qrCode')->name('tamu-undangan.qrCode');
     });
 
-    // not prioritas
-    Route::controller(ChairController::class)->group(function () {
-        Route::get('/list-kursi',  'index')->name('chair.list');
-        Route::post('/list-kursi',  'store')->name('chair.store');
-        Route::post('/list-kursi/{chair}', 'updateOrDelete')->name('chair.update');
+    Route::controller(CommentC::class)->group(function () {
+        Route::get('/comments', 'index')->name('admin.comment.index');
+        Route::post('/comment/visiblity/{comment}', 'updateVisiblity')->name('admin.comment.update');
     });
-
     // untuk scan barcode yg telah disimpan
     Route::get('/qr-code/scan/{guest_id}', [QrController::class, 'scanQr'])->name('my-qr.scan');
 });

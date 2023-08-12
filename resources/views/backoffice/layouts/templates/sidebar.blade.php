@@ -70,7 +70,7 @@
       </a>
     </li>
     <li class="menu-item @yield('nav-ucapan')">
-      <a href="cards-basic.html" class="menu-link">
+      <a href="{{ route('admin.comment.index') }}" class="menu-link">
         <i class="menu-icon tf-icons bx bx-message-dots"></i>
         <div data-i18n="Basic">Kelola Ucapan</div>
       </a>

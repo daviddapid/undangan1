@@ -2,128 +2,121 @@
 @section('nav-tamu-undangan', 'active')
 
 @section('script')
+  <script>
+    $(document).ready(function() {
+      $('#myTable').DataTable({});
+    });
+  </script>
+  @if (session('failed'))
     <script>
-        $(document).ready(function() {
-            $('#myTable').DataTable({});
-        });
+      Swal.fire({
+        icon: 'error',
+        title: 'Gagal',
+        text: "{{ session('failed') }}",
+        // footer: '<a href="">Why do I have this issue?</a>'
+      })
     </script>
-    @if (session('failed'))
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Gagal',
-                text: "{{ session('failed') }}",
-                // footer: '<a href="">Why do I have this issue?</a>'
-            })
-        </script>
-    @endif
+  @endif
 @endsection
 
 @section('content')
-    <div class="container-xxl flex-grow-1 container-p-y">
-        <div class="d-flex justify-content-between">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb d-flex align-items-center">
-                    <li class="breadcrumb-item fs-4 text-primary active"><a href="{{ route('tamu-undangan') }}">Tamu
-                            Undangan</a></li>
-                </ol>
-            </nav>
-            <div class="d-flex">
-                <h3 class="badge bg-label-danger me-2">
-                    <span class="fs-6 me-1">Belum Hadir</span>
-                    <span class="badge bg-danger fs-6">{{ $selisih_kursi_tamu }}</span>
-                </h3>
-                <h3 class="badge bg-label-info me-2">
-                    <span class="fs-6 me-1">Telah Hadir</span>
-                    <span class="badge bg-info fs-6">{{ $selisih_kursi_tamu }}</span>
-                </h3>
-                <h3 class="badge bg-label-primary me-2">
-                    <span class="fs-6 me-1">Total Tamu</span>
-                    <span class="badge bg-primary fs-6">{{ $selisih_kursi_tamu }}</span>
-                </h3>
-
-                {{-- <div>
-          <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal-generate">
-            <i class='bx bx-analyse' style="vertical-align: text-bottom"></i>
-            <span>Generate Kursi</span>
-          </button>
-        </div> --}}
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
-                <h4 class="mb-0">Daftar Tamu Undangan</h4>
-            </div>
-            <div class="card-body">
-                <table id="myTable" class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th class="align-middle text-center">Nama</th>
-                            <th class="align-middle text-center">No Telepon</th>
-                            <th class="align-middle text-center">Jumlah</th>
-                            <th class="text-center align-middle">Ketersediaan</th>
-                            <th class="text-center align-middle" style="width: 19px;">Telah Hadir</th>
-                            <th class="text-center align-middle">Qr Code</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($guests as $i => $g)
-                            <tr>
-                                <td style="width: 9px; white-space: nowrap">{{ $i + 1 }}</td>
-                                <td>{{ $g->user->name }}</td>
-                                <td>{{ $g->phone }}</td>
-                                <td class="">{{ $g->number_of_person }} Orang</td>
-                                <td class="" style="width: 9px; white-space: nowrap;">
-                                    <a class="btn btn-primary" href="{{ route('tamu-undangan.setKursi', $g->id) }}">
-                                        <i class='bx bx-chair align-text-bottom'></i>
-                                        Set Nomor Kursi
-                                    </a>
-                                    {{-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-setKursi"
+  <div class="container-xxl flex-grow-1 container-p-y">
+    <div class="d-flex justify-content-between">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb d-flex align-items-center">
+          <li class="breadcrumb-item fs-4 text-primary active"><a href="{{ route('tamu-undangan') }}">Tamu
+              Undangan</a></li>
+        </ol>
+      </nav>
+      <div class="d-flex">
+        <h3 class="badge bg-label-danger me-2">
+          <span class="fs-6 me-1">Belum Hadir</span>
+          <span class="badge bg-danger fs-6">1</span>
+        </h3>
+        <h3 class="badge bg-label-info me-2">
+          <span class="fs-6 me-1">Telah Hadir</span>
+          <span class="badge bg-info fs-6">1</span>
+        </h3>
+        <h3 class="badge bg-label-primary me-2">
+          <span class="fs-6 me-1">Total Tamu</span>
+          <span class="badge bg-primary fs-6">1</span>
+        </h3>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h4 class="mb-0">Daftar Tamu Undangan</h4>
+      </div>
+      <div class="card-body">
+        <table id="myTable" class="table table-bordered">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th class="align-middle text-center">Nama</th>
+              <th class="align-middle text-center">No Telepon</th>
+              <th class="align-middle text-center">Jumlah</th>
+              <th class="text-center align-middle">Ketersediaan</th>
+              <th class="text-center align-middle" style="width: 19px;">Telah Hadir</th>
+              <th class="text-center align-middle">Qr Code</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($guests as $i => $g)
+              <tr>
+                <td style="width: 9px; white-space: nowrap">{{ $i + 1 }}</td>
+                <td>{{ $g->user->name }}</td>
+                <td>{{ $g->phone }}</td>
+                <td class="">{{ $g->number_of_person }} Orang</td>
+                <td class="" style="width: 9px; white-space: nowrap;">
+                  <a class="btn btn-primary" href="{{ route('tamu-undangan.setKursi', $g->id) }}">
+                    <i class='bx bx-chair align-text-bottom'></i>
+                    Set Nomor Kursi
+                  </a>
+                  {{-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-setKursi"
                     onclick="handleSetKursi($g->id)">Set Nomor
                     Kursi</button> --}}
-                                </td>
-                                <td style="width: 9px;white-space: nowrap;">
-                                    @switch($g->status)
-                                        @case('attend')
-                                            <span class="badge
+                </td>
+                <td style="width: 9px;white-space: nowrap;">
+                  @switch($g->status)
+                    @case('attend')
+                      <span class="badge
                 rounded-pill bg-success">Bersedia Hadir</span>
-                                        @break
+                    @break
 
-                                        @case('absent')
-                                            <span class="badge rounded-pill bg-danger">Berhalangan</span>
-                                        @break
+                    @case('absent')
+                      <span class="badge rounded-pill bg-danger">Berhalangan</span>
+                    @break
 
-                                        @case('pending')
-                                            <span class="badge rounded-pill bg-warning">Pending</span>
-                                        @break
+                    @case('pending')
+                      <span class="badge rounded-pill bg-warning">Pending</span>
+                    @break
 
-                                        @default
-                                    @endswitch
-                                </td>
-                                <td style="width: 9px;white-space: nowrap">
-                                    @if ($g->is_present)
-                                        <span class="badge rounded-pill bg-info">Telah Hadir</span>
-                                    @else
-                                        <span class="badge rounded-pill bg-secondary">Belum Hadir</span>
-                                    @endif
-                                </td>
-                                <td style="white-space: nowrap; width: 19px;" class="text-center">
-                                    {{-- <button class="btn btn-primary p-2 d-flex"><i class='bx bx-qr-scan '></i></button> --}}
-                                    <a href="{{ route('tamu-undangan.qrCode', $g->id) }}">
+                    @default
+                  @endswitch
+                </td>
+                <td style="width: 9px;white-space: nowrap">
+                  @if ($g->is_present)
+                    <span class="badge rounded-pill bg-info">Telah Hadir</span>
+                  @else
+                    <span class="badge rounded-pill bg-secondary">Belum Hadir</span>
+                  @endif
+                </td>
+                <td style="white-space: nowrap; width: 19px;" class="text-center">
+                  {{-- <button class="btn btn-primary p-2 d-flex"><i class='bx bx-qr-scan '></i></button> --}}
+                  <a href="{{ route('tamu-undangan.qrCode', $g->id) }}">
 
-                                        <i class='bx bx-qr-scan fs-4'></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                    <i class='bx bx-qr-scan fs-4'></i>
+                  </a>
+                </td>
+              </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-        {{-- MODAL SET KURSI TAMU --}}
-        {{-- <div class="modal fade" id="modal-setKursi" tabindex="-1" aria-labelledby="modal-setKursiLabel" aria-hidden="true">
+    {{-- MODAL SET KURSI TAMU --}}
+    {{-- <div class="modal fade" id="modal-setKursi" tabindex="-1" aria-labelledby="modal-setKursiLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header">
@@ -163,6 +156,6 @@
         </div>
       </div>
     </div> --}}
-    </div>
+  </div>
 
 @endsection

@@ -1,0 +1,19 @@
+.comments-wrapper {
+    padding-block: 0;
+}
+
+
+.slick-list {
+    padding: 30px;
+}
+
+.card-comment {
+    margin-inline: 5px;
+    width: 350px;
+}
+
+@media (max-width: 425px) {
+    .card-comment {
+        width: 70vw
+    }
+}
