@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\TamuC;
+use App\Http\Controllers\QrController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +19,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('/tamu/nomor-kursi', [TamuC::class, 'setNomorKursi']);
+// untuk scan barcode yg telah disimpan
+Route::get('/qr-code/scan/{guest_id}', [QrController::class, 'scanQr'])->name('my-qr.scan');

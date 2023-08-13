@@ -6,6 +6,7 @@ BTN_STOP.forEach((btn) => {
     btn.addEventListener("click", stopScan);
 });
 
+
 // define rectangle scanner
 let qrboxFunction = function (viewfinderWidth, viewfinderHeight) {
     let minEdgePercentage = 0.7; // 70%
@@ -58,93 +59,84 @@ function startScan() {
         console.log(err);
     });
 }
+
+// process of scaning barcode
 function handleScanSuccess(decodedText, decodedResult) {
     // do something when code is read
     HTML5_QR_CODE.pause(true);
-
-    // do fetch data here
-    fetch(decodedText)
-        // waktu mulai nge fetch, maka munculin modal loading
-        .then((res) => {
-            Swal.fire({
-                icon: "info",
-                title: "Harap Menunggu",
-                text: "QR Anda Sedang Kami Proses, Harap Menunggu",
-                timerProgressBar: true,
-                backdrop: false,
-                didOpen: () => Swal.showLoading(),
-            });
-            return res.json();
-        })
-        .then((data) => {
-            let SWAL_CONFIG;
-
-            console.log(data.status);
-            if (data.status == "qr-not-valid") {
-                SWAL_CONFIG = {
-                    icon: "error",
-                    title: data.title,
-                    text: data.message,
-                    timer: 5000,
-                    timerProgressBar: true,
-                };
-            } else if (data.status == "ok") {
-                SWAL_CONFIG = {
-                    icon: "success",
-                    title: "Terima Kasih Telah Datang",
-                    text: data.message,
-                    timer: 5000,
-                    timerProgressBar: true,
-                    footer:
-                        `<div class="d-flex" style="flex-direction:column">
-                        <h5 class="mb-0">Berikut Nomor Kursi Yang Dapat Anda Duduki : </h5>
-                        <div>` +
-                        data.chairs.map(
-                            (c) =>
-                                `<span class="badge rounded-pill bg-label-primary fs-4">${c.number}</span>`
-                        ) +
-                        `</div>
-                        </div>`,
-                };
-            } else if (data.status == "already-scanned") {
-                SWAL_CONFIG = {
-                    icon: "success",
-                    title: data.title,
-                    text: data.message,
-                    timer: 5000,
-                    timerProgressBar: true,
-                    footer:
-                        `<div class="d-flex" style="flex-direction:column">
-                        <h5 class="mb-0">Berikut Nomor Kursi Yang Dapat Anda Duduki : </h5>
-                        <div>` +
-                        data.chairs.map(
-                            (c) =>
-                                `<span class="badge rounded-pill bg-label-primary fs-4">${c.number}</span>`
-                        ) +
-                        `</div>
-                        </div>`,
-                };
-                console.log(data);
-            } else if (data.status == "error") {
-                SWAL_CONFIG = {
-                    icon: "error",
-                    title: "Error",
-                    text: "Harap Laporkan Ke Admin",
-                    timer: 5000,
-                    timerProgressBar: true,
-                };
-                console.log(data);
-            }
-            // if success then show swal success and after swal dismiss then resume the scanner
-            Swal.fire(SWAL_CONFIG).then((result) => {
-                console.log(result);
-                HTML5_QR_CODE.resume();
-            });
-            console.log(data);
+    if (!sameHost(decodedText, window.location)) {
+        Swal.fire({
+            icon: "error",
+            title: "QR Code tidak valid",
+            text: "QR Code tidak valid",
+            timerProgressBar: true,
+            timer: 3000,
+            backdrop: false,
+        }).then(() => {
+            HTML5_QR_CODE.resume();
         });
+    } else {
+        // do fetch data here
+        fetch(decodedText)
+            // waktu mulai nge fetch, maka munculin modal loading
+            .then((res) => {
+                Swal.fire({
+                    icon: "info",
+                    title: "Harap Menunggu",
+                    text: "QR Anda Sedang Kami Proses, Harap Menunggu",
+                    timerProgressBar: true,
+                    backdrop: false,
+                    didOpen: () => Swal.showLoading(),
+                });
+                return res.json();
+            })
+            .then((data) => {
+                let SWAL_CONFIG;
+                console.log(data);
 
-    console.log("decodedText: " + decodedText);
-    console.log("decodedResult: " + JSON.stringify(decodedResult));
+                if (data.status == "qr-not-valid") {
+                    SWAL_CONFIG = {
+                        icon: "error",
+                        title: data.title,
+                        text: data.message,
+                        timer: 5000,
+                        timerProgressBar: true,
+                    };
+                } else if (data.status == "ok") {
+                    SWAL_CONFIG = {
+                        icon: "success",
+                        title: "Terima Kasih Telah Datang",
+                        text: data.message,
+                        timer: 5000,
+                        timerProgressBar: true,
+                    };
+                } else if (data.status == "already-scanned") {
+                    SWAL_CONFIG = {
+                        icon: "success",
+                        title: data.title,
+                        text: data.message,
+                        timer: 5000,
+                        timerProgressBar: true,
+                    };
+                    console.log(data);
+                } else if (data.status == "error") {
+                    SWAL_CONFIG = {
+                        icon: "error",
+                        title: "Error",
+                        text: "Harap Laporkan Ke Admin",
+                        timer: 5000,
+                        timerProgressBar: true,
+                    };
+                    console.log(data);
+                }
+
+                // if success then show swal success and after swal dismiss then resume the scanner
+                Swal.fire(SWAL_CONFIG).then((result) => {
+                    console.log(result);
+                    HTML5_QR_CODE.resume();
+                });
+            });
+    }
 }
 // its optional you can ignore this function
 function handleScanError(errorMessage) {
@@ -162,4 +154,12 @@ function stopScan() {
             // Stop failed, handle it.
             console.log(err);
         });
+}
+
+
+// utils
+function sameHost(a, b) {
+    const urlA = new URL(a);
+    const urlB = new URL(b);
+    return urlA.host == urlB.host;
 }

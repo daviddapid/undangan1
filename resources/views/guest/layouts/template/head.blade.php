@@ -32,6 +32,8 @@
 
   <link rel="manifest" href="/manifest.json">
 
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+
   <style>
     html {
       scroll-behavior: smooth !important;

@@ -31,15 +31,15 @@
       <div class="d-flex">
         <h3 class="badge bg-label-danger me-2">
           <span class="fs-6 me-1">Belum Hadir</span>
-          <span class="badge bg-danger fs-6">1</span>
+          <span class="badge bg-danger fs-6">{{ $total_tamu_belum_hadir }}</span>
         </h3>
         <h3 class="badge bg-label-info me-2">
           <span class="fs-6 me-1">Telah Hadir</span>
-          <span class="badge bg-info fs-6">1</span>
+          <span class="badge bg-info fs-6">{{ $total_tamu_hadir }}</span>
         </h3>
         <h3 class="badge bg-label-primary me-2">
           <span class="fs-6 me-1">Total Tamu</span>
-          <span class="badge bg-primary fs-6">1</span>
+          <span class="badge bg-primary fs-6">{{ $total_tamu }}</span>
         </h3>
       </div>
     </div>
@@ -67,15 +67,6 @@
                 <td>{{ $g->user->name }}</td>
                 <td>{{ $g->phone }}</td>
                 <td class="">{{ $g->number_of_person }} Orang</td>
-                <td class="" style="width: 9px; white-space: nowrap;">
-                  <a class="btn btn-primary" href="{{ route('tamu-undangan.setKursi', $g->id) }}">
-                    <i class='bx bx-chair align-text-bottom'></i>
-                    Set Nomor Kursi
-                  </a>
-                  {{-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-setKursi"
-                    onclick="handleSetKursi($g->id)">Set Nomor
-                    Kursi</button> --}}
-                </td>
                 <td style="width: 9px;white-space: nowrap;">
                   @switch($g->status)
                     @case('attend')

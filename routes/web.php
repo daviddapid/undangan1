@@ -56,8 +56,6 @@ Route::middleware('admin')->prefix('admin')->group(function () {
         Route::get('/comments', 'index')->name('admin.comment.index');
         Route::post('/comment/visiblity/{comment}', 'updateVisiblity')->name('admin.comment.update');
     });
-    // untuk scan barcode yg telah disimpan
-    Route::get('/qr-code/scan/{guest_id}', [QrController::class, 'scanQr'])->name('my-qr.scan');
 });
 
 Route::get('/logout', function (Request $request) {

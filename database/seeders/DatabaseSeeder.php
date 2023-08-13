@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\Chair;
 use App\Models\Guest;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -32,8 +31,9 @@ class DatabaseSeeder extends Seeder
             'role' => 'superadmin'
         ]);
     }
-    
-    private function generate30Guest() {
+
+    private function generate30Guest()
+    {
         for ($i = 4; $i <= 30; $i++) {
             User::create([
                 'name' => 'tamu' . $i,

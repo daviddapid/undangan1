@@ -8,6 +8,7 @@
     });
 
     function toggleVisiblity(event, comment_id, url) {
+      console.log(url);
       fetch(url, {
           headers: {
             'X-CSRF-TOKEN': '{{ csrf_token() }}'

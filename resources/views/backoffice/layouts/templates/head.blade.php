@@ -11,6 +11,7 @@
   <title>UndanganKu - Dashboard</title>
 
   <meta name="description" content="" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="{{ asset('backoffice/assets/img/favicon/favicon.ico') }}" />

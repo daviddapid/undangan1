@@ -90,14 +90,13 @@
   <script>
     $(document).ready(function() {
       $('.autoplay').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
+        infinite: true,
         autoplay: true,
-        autoplaySpeed: 1,
+        autoplaySpeed: 0,
         speed: 5000,
         cssEase: 'linear',
         variableWidth: true,
-        arrows: false
+        arrows: false,
       });
     });
   </script>

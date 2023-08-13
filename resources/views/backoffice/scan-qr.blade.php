@@ -32,7 +32,6 @@
               <th>No Telepon</th>
               <th class="text-center">Jumlah</th>
               <th class="text-center">Kehadiran</th>
-              <th class="text-center">Nomer Meja</th>
             </tr>
           </thead>
           <tbody>
@@ -49,11 +48,6 @@
                   @else
                     <span class="badge rounded-pill bg-secondary">Belum Hadir</span>
                   @endif
-                </td>
-                <td style="white-space: nowrap; width: 19px;">
-                  @foreach ($g->chairs as $chair)
-                    <span class="badge rounded-pill bg-label-primary">{{ $chair->number }}</span>
-                  @endforeach
                 </td>
               </tr>
             @endforeach
