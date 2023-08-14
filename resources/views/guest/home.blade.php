@@ -13,14 +13,13 @@
   @include('guest.sections.contact')
   @include('guest.sections.team')
   @include('guest.sections.event')
-  @include('guest.sections.partner')
+  {{-- @include('guest.sections.partner') --}}
   @include('guest.sections.comment')
 
 
 
-
   <!-- color-switcher -->
-  <div class="color-switcher-wrap">
+  {{-- <div class="color-switcher-wrap">
     <div class="color-switcher-item">
       <div class="color-toggle-btn">
         <i class="fa fa-cog"></i>
@@ -37,5 +36,5 @@
         <li class="btn btn9" id="Button9"></li>
       </ul>
     </div>
-  </div>
+  </div> --}}
 @endsection

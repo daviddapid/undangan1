@@ -11,6 +11,7 @@ use App\Http\Controllers\QrController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 use PhpParser\Node\Stmt\Return_;
 
 /*
@@ -72,3 +73,5 @@ Route::get('/logout', function (Request $request) {
 Route::get('/test/scan', function () {
     return view('backoffice.test.qr-scanner');
 });
+
+// URL::forceScheme('https');

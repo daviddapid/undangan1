@@ -1,5 +1,5 @@
  <!-- start wpo-event-section -->
- <section class="wpo-event-section section-padding" id="event">
+ <section class="wpo-event-section section-padding" id="event" style="padding-bottom: 0">
    <div class="container">
      <div class="row">
        <div class="wpo-section-title-s2">
@@ -26,12 +26,12 @@
                  <li>+1 234-567-8910</li>
 
                  <li>
-                   <a class="popup-gmaps"
-                     href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25211.21212385712!2d144.95275648773628!3d-37.82748510398018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e0!2zTWVsYm91cm5lIFZJQyAzMDA0LCDgpoXgprjgp43gpp_gp43gprDgp4fgprLgpr_gpq_gprzgpr4!5e0!3m2!1sbn!2sbd!4v1503742051881">See
+                   <a href="#" data-bs-toggle="modal" data-bs-target="#modal-reception">See
                      Location</a>
                  </li>
                </ul>
              </div>
+
            </div>
          </div>
          <div class="col col-lg-4 col-md-6 col-12">
@@ -48,8 +48,7 @@
                  </li>
                  <li>+1 234-567-8910</li>
                  <li>
-                   <a class="popup-gmaps"
-                     href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25211.21212385712!2d144.95275648773628!3d-37.82748510398018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e0!2zTWVsYm91cm5lIFZJQyAzMDA0LCDgpoXgprjgp43gpp_gp43gprDgp4fgprLgpr_gpq_gprzgpr4!5e0!3m2!1sbn!2sbd!4v1503742051881">See
+                   <a href="#" data-bs-toggle="modal" data-bs-target="#modal-ceremony">See
                      Location</a>
                  </li>
                </ul>
@@ -70,8 +69,7 @@
                  </li>
                  <li>+1 234-567-8910</li>
                  <li>
-                   <a class="popup-gmaps"
-                     href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25211.21212385712!2d144.95275648773628!3d-37.82748510398018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e0!2zTWVsYm91cm5lIFZJQyAzMDA0LCDgpoXgprjgp43gpp_gp43gprDgp4fgprLgpr_gpq_gprzgpr4!5e0!3m2!1sbn!2sbd!4v1503742051881">See
+                   <a href="#" data-bs-toggle="modal" data-bs-target="#modal-wedding">See
                      Location</a>
                  </li>
                </ul>
@@ -82,5 +80,55 @@
      </div>
    </div>
    <!-- end container -->
+
  </section>
+ <!-- Modal -->
+ <div class="modal fade" id="modal-reception" tabindex="-1" aria-labelledby="modal-receptionLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-xl">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h1 class="modal-title fs-5" id="modal-receptionLabel">Reception Location</h1>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <div class="modal-body">
+         <iframe
+           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3025.007354442308!2d112.72603732702969!3d-7.344153869220568!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fca9c2171c9f%3A0xefadbc76ce524bdc!2sCity%20of%20Tomorrow%20Mall!5e0!3m2!1sid!2sid!4v1692021291317!5m2!1sid!2sid"
+           width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+           referrerpolicy="no-referrer-when-downgrade"></iframe>
+       </div>
+     </div>
+   </div>
+ </div>
+ <div class="modal fade" id="modal-ceremony" tabindex="-1" aria-labelledby="modal-ceremonyLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-xl">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h1 class="modal-title fs-5" id="modal-ceremonyLabel">Ceremony Location</h1>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <div class="modal-body">
+         <iframe
+           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3025.007354442308!2d112.72603732702969!3d-7.344153869220568!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fca9c2171c9f%3A0xefadbc76ce524bdc!2sCity%20of%20Tomorrow%20Mall!5e0!3m2!1sid!2sid!4v1692021291317!5m2!1sid!2sid"
+           width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+           referrerpolicy="no-referrer-when-downgrade"></iframe>
+       </div>
+     </div>
+   </div>
+ </div>
+ <div class="modal fade" id="modal-wedding" tabindex="-1" aria-labelledby="modal-weddingLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-xl">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h1 class="modal-title fs-5" id="modal-weddingLabel">Wedding Location</h1>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <div class="modal-body">
+         <iframe
+           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3025.007354442308!2d112.72603732702969!3d-7.344153869220568!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fca9c2171c9f%3A0xefadbc76ce524bdc!2sCity%20of%20Tomorrow%20Mall!5e0!3m2!1sid!2sid!4v1692021291317!5m2!1sid!2sid"
+           width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+           referrerpolicy="no-referrer-when-downgrade"></iframe>
+       </div>
+     </div>
+   </div>
+ </div>
  <!-- end wpo-event-section -->
