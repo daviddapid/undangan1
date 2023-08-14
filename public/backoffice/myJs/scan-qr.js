@@ -64,7 +64,7 @@ function startScan() {
 function handleScanSuccess(decodedText, decodedResult) {
     // do something when code is read
     HTML5_QR_CODE.pause(true);
-    if (!sameHost(decodedText, window.location)) {
+    if (!isValidHttpUrl(decodedText) || !sameHost(decodedText, window.location)) {
         Swal.fire({
             icon: "error",
             title: "QR Code tidak valid",
@@ -163,3 +163,14 @@ function sameHost(a, b) {
     const urlB = new URL(b);
     return urlA.host == urlB.host;
 }
+function isValidHttpUrl(string) {
+    let url;
+    
+    try {
+      url = new URL(string);
+    } catch (_) {
+      return false;  
+    }
+  
+    return url.protocol === "http:" || url.protocol === "https:";
+  }

@@ -3,7 +3,7 @@
 @endsection
 
 <!-- start comments-section -->
-<section class="wpo-blog-section section-padding" id="blog">
+<section class="wpo-blog-section section-padding" id="comments">
   <div class="container">
     <div class="row">
       <div class="wpo-section-title">
