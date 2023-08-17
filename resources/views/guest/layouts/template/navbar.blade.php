@@ -16,7 +16,7 @@
           </div>
           <div class="col-lg-2 col-md-6 col-6">
             <div class="navbar-header">
-              <a class="navbar-brand logo" href="{{ route('home') }}"><small>Doko&</small>Yanti<span><i
+              <a class="navbar-brand logo" href="{{ route('home') }}"><small>Undangan</small>Ku<span><i
                     class="fi flaticon-dove"></i></span></a>
             </div>
           </div>

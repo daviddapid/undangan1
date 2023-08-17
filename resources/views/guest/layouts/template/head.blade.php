@@ -30,6 +30,9 @@
   <link href="guest/assets/sass/style.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 
+  {{-- my custom or fixing css --}}
+  <link href="guest/assets/css/fixing-responsive.css" rel="stylesheet">
+
   <link rel="manifest" href="/manifest.json">
 
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />

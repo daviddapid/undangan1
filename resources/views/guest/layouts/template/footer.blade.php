@@ -9,9 +9,7 @@
               <a class="logo" href="index-2.html"><small>My</small>love<span><i class="fi flaticon-dove"></i></span></a>
             </div>
             <p>
-              Blandit ipsum arcu donec auctor a,
-              turpis vitae. Egestas pretium euenim non
-              euoeu dignissim nulla nunc quisque
+              Undang Keluarga, Kerabat, dan teman-temanmu dengan mudah menggunakan Aplikasi <b>UndanganKu</b>
             </p>
             <ul>
               <li>
@@ -47,13 +45,10 @@
                 <a href="about.html">About Us</a>
               </li>
               <li>
-                <a href="blog.html">Latest News</a>
+                <a href="blog.html">Pricing</a>
               </li>
               <li>
-                <a href="accomodation.html">Accomodation</a>
-              </li>
-              <li>
-                <a href="story.html">Our story</a>
+                <a href="blog.html">Contact</a>
               </li>
             </ul>
           </div>
@@ -66,13 +61,14 @@
             <div class="contact-ft">
               <ul>
                 <li>
-                  <i class="fi flaticon-email"></i>Mylove@gmail.com
+                  <i class="fi flaticon-email"></i>undanganku@gmail.com
                 </li>
                 <li>
-                  <i class="fi flaticon-phone-call"></i>+888 (123) 869523
+                  <i class="fi flaticon-phone-call"></i>+62 08813573777
                 </li>
                 <li>
-                  <i class="fi flaticon-maps-and-flags"></i>New York – 1075 Firs Avenue
+                  <i class="fi flaticon-maps-and-flags"></i>Jl. Smea No.4, Kec. Wonokromo, Surabaya, Jawa
+                  Timur
                 </li>
               </ul>
             </div>
@@ -82,12 +78,12 @@
         <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12">
           <div class="widget newsletter">
             <div class="widget-title">
-              <h3>Newsletter</h3>
+              <h3>Our Location</h3>
             </div>
-            <form>
-              <input type="text" placeholder="Email" required />
-              <button type="submit">Subscribe</button>
-            </form>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d794.6686388306916!2d112.72448604590801!3d-7.351391545240344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7e5ef62fbc74d%3A0xc850d71c0bfc7b60!2sTerminal%20Bungurasih!5e0!3m2!1sid!2sid!4v1692081883085!5m2!1sid!2sid"
+              height="300" style="border:0;width: 100%;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>
@@ -99,8 +95,8 @@
       <div class="row">
         <div class="col col-xs-12">
           <p class="copyright">
-            &copy; 2022 Mylove Template. Design By
-            <a href="index-2.html">wpOceans</a>. All
+            &copy; 2023 UndanganKu. Design By
+            <a href="index-2.html">Kelompok 2</a>. All
             Rights Reserved.
           </p>
         </div>
@@ -125,6 +121,7 @@
 <script src="{{ asset('guest/assets/js/script.js') }}"></script>
 
 <script src="{{ asset('guest/js/backsound.js') }}"></script>
+<script src="{{ asset('guest/assets/js/my-clock.js') }}"></script>
 
 @yield('scripts')
 

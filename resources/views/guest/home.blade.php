@@ -1,8 +1,8 @@
 @extends('guest.layouts.main')
 
 @section('content')
-  <audio id="backsound" controls autoplay src="{{ asset('guest/assets/audio/backsound.mp3') }}">
-  </audio>
+  {{-- <audio id="backsound" controls autoplay src="{{ asset('guest/assets/audio/backsound.mp3') }}">
+  </audio> --}}
 
   @include('guest.sections.hero')
   @include('guest.sections.couple')
