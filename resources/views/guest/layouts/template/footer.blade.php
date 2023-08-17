@@ -115,6 +115,7 @@
 <script src="{{ asset('guest/assets/js/jquery.dlmenu.js') }}"></script>
 <script src="{{ asset('guest/assets/js/jquery-plugin-collection.js') }}"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Moving Animation -->
 <script src="{{ asset('guest/assets/js/moving-animation.js') }}"></script>
 <!-- Custom script for this template -->

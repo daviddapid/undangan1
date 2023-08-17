@@ -1,3 +1,24 @@
+@push('script')
+  @if (session('success-attend'))
+    <script>
+      Swal.fire({
+        icon: 'success',
+        title: 'Terima Kasih Telah Bersedia Hadir🙏',
+        text: "{{ session('success-attend') }}",
+        footer: "<a href='{{ route('my-qr') }}'>Atau klik disini</a>"
+      })
+    </script>
+  @elseif(session('success-absent'))
+    <script>
+      Swal.fire({
+        icon: 'success',
+        title: 'Sedih Banget Kamu Tidak Bisa Hadir☹️',
+        text: "{{ session('success-absent') }}",
+      })
+    </script>
+  @endif
+@endpush
+
 <!-- start of wpo-contact-section -->
 <section class="wpo-contact-section section-padding" id="RSVP">
   <div class="container">
@@ -10,41 +31,37 @@
           <h2>Your Detail</h2>
         </div>
 
-        @auth
-          <form method="post" action="{{ route('rsvp.store') }}" class="contact-validation-active">
+        @if ($user != null && $user->role == 'guest')
+          <form method="post" action="{{ route('rsvp.update', Auth::user()->id) }}" class="contact-validation-active">
             @csrf
+            @method('put')
             <div>
-              <input type="text" class="form-control" name="name" id="name" placeholder="Name" />
+              <input type="text" class="form-control" name="name" id="name" placeholder="Name" required
+                value="{{ $user->name }}" />
             </div>
             <div>
-              <input type="number" class="form-control" name="phone" id="phone" placeholder="Phone Number" />
+              <input type="number" class="form-control" name="phone" id="phone" placeholder="Phone Number"
+                required value="{{ $user->guest->phone }}" />
             </div>
             <div>
-              <select name="number_of_person" class="form-control">
-                <option disabled="disabled" selected>
-                  Number Of Guests
-                </option>
-                <option value="1">01</option>
-                <option value="2">02</option>
-                <option value="3">03</option>
-                <option value="4">04</option>
-                <option value="5">05</option>
-              </select>
+              <input type="number" name="number_of_person" placeholder="Jumlah tamu yang hadir" class="form-control"
+                value="{{ $user->guest->number_of_person }}">
             </div>
             <div class="radio-buttons">
               <p>
-                <input type="radio" id="status-attend" name="status" checked value="attend" />
-                <label for="status-attend">Yes, I will be there</label>
+                <input type="radio" id="status-attend" name="status" checked value="attend"
+                  @checked($user->guest->status == 'attend') />
+                <label for="status-attend">Iya, saya akan hadir</label>
               </p>
               <p>
-                <input type="radio" id="status-absent" name="status" value="absent" />
-                <label for="status-absent">Sorry, I can’t come</label>
+                <input type="radio" id="status-absent" name="status" value="absent" @checked($user->guest->status == 'absent') />
+                <label for="status-absent">Maaf, saya tidak bisa hadir</label>
               </p>
             </div>
 
             <div class="submit-area">
               <button type="submit" class="theme-btn-s3">
-                Send An Inquiry
+                Perbarui RSVP
               </button>
               <div id="c-loader">
                 <i class="ti-reload"></i>
@@ -58,7 +75,7 @@
               </div>
             </div>
           </form>
-        @endauth
+        @endif
 
         @guest
           <form method="post" action="{{ route('rsvp.store') }}" class="contact-validation-active">

@@ -38,10 +38,6 @@
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 
   <style>
-    html {
-      scroll-behavior: smooth !important;
-    }
-
     .shadow {
       box-shadow: 0 5px 9px #80808033 !important;
     }

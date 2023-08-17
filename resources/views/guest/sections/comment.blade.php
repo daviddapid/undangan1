@@ -86,7 +86,7 @@
 </section>
 <!-- end of wpo-contact-section -->
 
-@section('scripts')
+@push('script')
   <script>
     $(document).ready(function() {
       $('.autoplay').slick({
@@ -97,7 +97,8 @@
         cssEase: 'linear',
         variableWidth: true,
         arrows: false,
+        touchThreshold: 100,
       });
     });
   </script>
-@endsection
+@endpush

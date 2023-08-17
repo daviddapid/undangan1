@@ -29,6 +29,7 @@ use PhpParser\Node\Stmt\Return_;
 // ================
 Route::get('/', [HomeC::class, 'index'])->name('home');
 Route::post('/attendance-confirmation', [RsvpC::class, 'store'])->name('rsvp.store');
+Route::put('/attendance-update/{user}', [RsvpC::class, 'update'])->name('rsvp.update');
 Route::get('/my-qrcode', [QrController::class, 'index'])->name('my-qr');
 Route::post('/send-comment', [HomeC::class, 'sendComment'])->name('send-comment');
 
