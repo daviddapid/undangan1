@@ -81,5 +81,14 @@
         <div data-i18n="Basic">Scan QR</div>
       </a>
     </li>
+    <li class="menu-header small text-uppercase">
+      <span class="menu-header-text">Master Data</span>
+    </li>
+    <li class="menu-item @yield('nav-waktu-acara')">
+      <a href="{{ route('master.waktu-acara') }}" class="menu-link">
+        <i class='menu-icon tf-icons bx bx-time-five'></i>
+        <div data-i18n="Basic">Waktu Acara</div>
+      </a>
+    </li>
   </ul>
 </aside>

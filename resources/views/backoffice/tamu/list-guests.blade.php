@@ -30,12 +30,20 @@
       </nav>
       <div class="d-flex">
         <h3 class="badge bg-label-danger me-2">
-          <span class="fs-6 me-1">Belum Hadir</span>
-          <span class="badge bg-danger fs-6">{{ $total_tamu_belum_hadir }}</span>
+          <span class="fs-6 me-1">Tidak Hadir</span>
+          <span class="badge bg-danger fs-6">{{ $total_tidak_hadir }}</span>
         </h3>
         <h3 class="badge bg-label-info me-2">
+          <span class="fs-6 me-1">Bersedia Hadir</span>
+          <span class="badge bg-info fs-6">{{ $total_bersedia_hadir }}</span>
+        </h3>
+        <h3 class="badge bg-label-warning me-2">
+          <span class="fs-6 me-1">Belum Hadir</span>
+          <span class="badge bg-warning fs-6">{{ $total_belum_hadir }}</span>
+        </h3>
+        <h3 class="badge bg-label-success me-2">
           <span class="fs-6 me-1">Telah Hadir</span>
-          <span class="badge bg-info fs-6">{{ $total_tamu_hadir }}</span>
+          <span class="badge bg-success fs-6">{{ $total_telah_hadir }}</span>
         </h3>
         <h3 class="badge bg-label-primary me-2">
           <span class="fs-6 me-1">Total Tamu</span>

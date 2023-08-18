@@ -28,4 +28,14 @@ class AuthC extends Controller
 
         return back()->with('failed', 'Harap Masukan Data Yang Benar');
     }
+    function logoutAction(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
 }

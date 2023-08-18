@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AuthC;
 use App\Http\Controllers\admin\ChairController;
 use App\Http\Controllers\admin\CommentC;
 use App\Http\Controllers\admin\DashboardC;
+use App\Http\Controllers\admin\MasterController;
 use App\Http\Controllers\admin\TamuC;
 use App\Http\Controllers\guest\HomeC;
 use App\Http\Controllers\guest\RsvpC;
@@ -38,6 +39,7 @@ Route::post('/send-comment', [HomeC::class, 'sendComment'])->name('send-comment'
 // ==================
 Route::controller(AuthC::class)->group(function () {
     Route::get('/admin/login',  'login')->name('backoffice.login');
+    Route::get('/admin/logoutAction',  'logoutAction')->name('backoffice.logout.action');
     Route::post('/admin/login',  'loginAction')->name('backoffice.login.action');
 });
 Route::middleware('admin')->prefix('admin')->group(function () {
@@ -57,6 +59,10 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::controller(CommentC::class)->group(function () {
         Route::get('/comments', 'index')->name('admin.comment.index');
         Route::post('/comment/visiblity/{comment}', 'updateVisiblity')->name('admin.comment.update');
+    });
+    Route::controller(MasterController::class)->group(function () {
+        Route::get('/master/waktu-acara', 'waktuAcara')->name('master.waktu-acara');
+        Route::post('/master/waktu-acara/{dday}', 'setWaktuAcara')->name('master.waktu-acara.update');
     });
 });
 

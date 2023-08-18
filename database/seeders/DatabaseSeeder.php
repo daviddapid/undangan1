@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\DDay;
 use App\Models\Guest;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -30,7 +31,11 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'role' => 'superadmin'
         ]);
+        DDay::create([
+            'date_time' => date('Y-m-d', strtotime('tomorrow'))
+        ]);
     }
+
 
     private function generate30Guest()
     {

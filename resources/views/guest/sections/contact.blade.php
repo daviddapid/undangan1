@@ -51,16 +51,57 @@
               <p>
                 <input type="radio" id="status-attend" name="status" checked value="attend"
                   @checked($user->guest->status == 'attend') />
-                <label for="status-attend">Iya, saya akan hadir</label>
+                <label for="status-attend">Iya, saya hadir</label>
               </p>
               <p>
                 <input type="radio" id="status-absent" name="status" value="absent" @checked($user->guest->status == 'absent') />
-                <label for="status-absent">Maaf, saya tidak bisa hadir</label>
+                <label for="status-absent">Maaf, saya tidak hadir</label>
               </p>
             </div>
 
             <div class="submit-area">
-              <button type="submit" class="theme-btn-s3">
+              <button type="submit" @disabled($user->guest->is_present) class="theme-btn-s3">
+                Perbarui RSVP
+              </button>
+              <div id="c-loader">
+                <i class="ti-reload"></i>
+              </div>
+            </div>
+            <div class="clearfix error-handling-messages">
+              <div id="success">Thank you</div>
+              <div id="error">
+                Error occurred while sending email.
+                Please try again later.
+              </div>
+            </div>
+          </form>
+        @elseif($user != null && ($user->role == 'admin' || $user->role == 'superadmin'))
+          <form method="post" action="{{ route('rsvp.update', Auth::user()->id) }}" class="contact-validation-active">
+            @csrf
+            @method('put')
+            <div>
+              <input type="text" class="form-control" name="name" id="name" placeholder="Name" required />
+            </div>
+            <div>
+              <input type="number" class="form-control" name="phone" id="phone" placeholder="Phone Number"
+                required />
+            </div>
+            <div>
+              <input type="number" name="number_of_person" placeholder="Jumlah tamu yang hadir" class="form-control">
+            </div>
+            <div class="radio-buttons">
+              <p>
+                <input type="radio" id="status-attend" name="status" />
+                <label for="status-attend">Iya, saya hadir</label>
+              </p>
+              <p>
+                <input type="radio" id="status-absent" name="status" />
+                <label for="status-absent">Maaf, saya tidak hadir</label>
+              </p>
+            </div>
+
+            <div class="submit-area">
+              <button type="submit" class="theme-btn-s3" disabled>
                 Perbarui RSVP
               </button>
               <div id="c-loader">
@@ -93,11 +134,11 @@
             <div class="radio-buttons">
               <p>
                 <input type="radio" id="status-attend" name="status" checked value="attend" />
-                <label for="status-attend">Yes, I will be there</label>
+                <label for="status-attend">Iya, saya hadir</label>
               </p>
               <p>
                 <input type="radio" id="status-absent" name="status" value="absent" />
-                <label for="status-absent">Sorry, I can’t come</label>
+                <label for="status-absent">Maaf, saya tidak hadir</label>
               </p>
             </div>
 

@@ -15,11 +15,18 @@ class TamuC extends Controller
             ->with('user')
             ->get();
 
-        $tamu_bersedia = $guests->where('status', 'attend');
-        $total_tamu = $tamu_bersedia->sum('number_of_person');
-        $total_tamu_hadir = $tamu_bersedia->where('is_present', true)->sum('number_of_person');
-        $total_tamu_belum_hadir = $tamu_bersedia->where('is_present', false)->sum('number_of_person');
-        return view('backoffice.tamu.list-guests', compact('guests', 'total_tamu', 'total_tamu_hadir', 'total_tamu_belum_hadir'));
+        // tidak hadir danger
+        // bersedia hadir info
+        // telah hadir green
+        // belum hadir warning
+        // total tamu primary
+        $total_tamu = $guests->sum('number_of_person');
+        $total_tidak_hadir = $guests->where('status', 'absent')->sum('number_of_person');
+        $total_bersedia_hadir = $guests->where('status', 'attend')->sum('number_of_person');
+        $total_belum_hadir = $guests->where('is_present', false)->sum('number_of_person');
+        $total_telah_hadir = $guests->where('is_present', true)->sum('number_of_person');
+
+        return view('backoffice.tamu.list-guests', compact('guests', 'total_tamu', 'total_bersedia_hadir', 'total_tidak_hadir', 'total_belum_hadir', 'total_telah_hadir'));
     }
     public function qrCode(Guest $guest)
     {
