@@ -60,9 +60,14 @@ Route::middleware('admin')->prefix('admin')->group(function () {
         Route::get('/comments', 'index')->name('admin.comment.index');
         Route::post('/comment/visiblity/{comment}', 'updateVisiblity')->name('admin.comment.update');
     });
-    Route::controller(MasterController::class)->group(function () {
-        Route::get('/master/waktu-acara', 'waktuAcara')->name('master.waktu-acara');
-        Route::post('/master/waktu-acara/{dday}', 'setWaktuAcara')->name('master.waktu-acara.update');
+    Route::controller(MasterController::class)->prefix('master')->name('master.')->group(function () {
+        Route::get('/waktu-acara', 'waktuAcara')->name('waktu-acara');
+        Route::post('/waktu-acara/{dday}', 'setWaktuAcara')->name('waktu-acara.update');
+
+        Route::get('/couple-story', 'coupleStory')->name('coupleStory.index');
+        Route::post('/couple-story', 'coupleStoryStore')->name('coupleStory.store');
+        Route::put('/couple-story/{couplestory}', 'coupleStoryUpdate')->name('coupleStory.update');
+        Route::delete('/couple-story/{couplestory}', 'coupleStoryDelete')->name('coupleStory.delete');
     });
 });
 

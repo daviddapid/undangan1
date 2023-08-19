@@ -19,7 +19,68 @@
                </span>
              </div>
            </div>
-           <div class="story-timeline-item s1">
+           @foreach ($stories as $i => $s)
+             @if ($i % 2 == 0)
+               <div class="story-timeline-item">
+                 <div class="row align-items-center">
+                   <div class="col col-lg-6 col-12">
+                     <div class="img-holder right-align-text left-site right-heart">
+                       <img src="{{ asset('storage/' . $s->photo) }}" alt
+                         style="width:510px; height:600px; object-fit: cover"
+                         class="img img-responsive wow fadeInLeftSlow" data-wow-duration="1500ms" />
+                       <span class="heart">
+                         <i class="fi flaticon-dove"></i>
+                       </span>
+                     </div>
+                   </div>
+                   <div class="col col-lg-6 col-12">
+                     <div class="story-text left-align-text wow fadeInRightSlow" data-wow-duration="2000ms">
+                       <h3>{{ $s->title }}</h3>
+                       <span class="date">{{ $s->formatedDate() }}</span>
+                       <div class="line-shape">
+                         <div class="outer-ball">
+                           <div class="inner-ball"></div>
+                         </div>
+                       </div>
+                       <p>
+                         {{ $s->description }}
+                       </p>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             @else
+               <div class="story-timeline-item">
+                 <div class="row align-items-center">
+                   <div class="col col-lg-6 col-12 order-lg-1 order-2 text-holder left-text">
+                     <div class="story-text right-align-text wow fadeInLeftSlow" data-wow-duration="2000ms">
+                       <h3>{{ $s->title }}</h3>
+                       <span class="date">{{ $s->formatedDate() }}</span>
+                       <div class="line-shape s2">
+                         <div class="outer-ball">
+                           <div class="inner-ball"></div>
+                         </div>
+                       </div>
+                       <p>
+                         {{ $s->description }}
+                       </p>
+                     </div>
+                   </div>
+                   <div class="col col-lg-6 col-12 order-lg-2 order-1">
+                     <div class="img-holder left-align-text">
+                       <img src="{{ asset('storage/' . $s->photo) }}" alt
+                         style="width:510px; height:600px; object-fit: cover"
+                         class="img img-responsive wow fadeInRightSlow" data-wow-duration="1500ms" />
+                       <span class="heart">
+                         <i class="fi flaticon-dance"></i>
+                       </span>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             @endif
+           @endforeach
+           {{-- <div class="story-timeline-item s1">
              <div class="row align-items-center">
                <div class="col col-lg-6 col-12">
                  <div class="img-holder right-align-text wow fadeInLeftSlow" data-wow-duration="1500ms">
@@ -116,7 +177,7 @@
                  </div>
                </div>
              </div>
-           </div>
+           </div> --}}
          </div>
        </div>
      </div>

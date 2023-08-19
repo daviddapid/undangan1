@@ -90,5 +90,11 @@
         <div data-i18n="Basic">Waktu Acara</div>
       </a>
     </li>
+    <li class="menu-item @yield('nav-couple-story')">
+      <a href="{{ route('master.coupleStory.index') }}" class="menu-link">
+        <i class='menu-icon tf-icons bx bx-book-heart'></i>
+        <div data-i18n="Basic">Couple Story</div>
+      </a>
+    </li>
   </ul>
 </aside>

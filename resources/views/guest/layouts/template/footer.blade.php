@@ -122,7 +122,7 @@
 <script src="{{ asset('guest/assets/js/script.js') }}"></script>
 
 <script src="{{ asset('guest/js/backsound.js') }}"></script>
-<script src="{{ asset('guest/assets/js/my-clock.js') }}"></script>
+{{-- <script src="{{ asset('guest/assets/js/my-clock.js') }}"></script> --}}
 
 @yield('scripts')
 
