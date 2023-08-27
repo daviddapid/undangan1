@@ -11,13 +11,12 @@
               </div>
               <div data-swiper-parallax="300" class="slide-title">
                 <h2>
-                  Alexander <span>&</span> Jenny
+                  {{ $couples_bio[0]->name ?? '<name>' }} <span>&</span> {{ $couples_bio[1]->name ?? '<name>' }}
                 </h2>
               </div>
               <div data-swiper-parallax="400" class="slide-text">
                 <p>
-                  We Are Getting Married Dec 8,
-                  2022
+                  We Are Getting Married {{ $ddate }}
                 </p>
               </div>
               <div class="wpo-wedding-date">

@@ -32,33 +32,33 @@ class MasterController extends Controller
     /*================
         COUPLE STORY
     ==================*/
-    function coupleStory()
-    {
-        $stories = CoupleStory::all();
-        return view('backoffice.master.couple_story.index', compact('stories'));
-    }
-    function coupleStoryStore(Request $request)
-    {
-        $request->validate([
-            'description' => 'max:207'
-        ]);
+    // function coupleStory()
+    // {
+    //     $stories = CoupleStory::all();
+    //     return view('backoffice.master.couple_story.index', compact('stories'));
+    // }
+    // function coupleStoryStore(Request $request)
+    // {
+    //     $request->validate([
+    //         'description' => 'max:207'
+    //     ]);
 
-        CoupleStory::_store($request);
-        return back()->with('success', 'Sukses menambahkan data baru');
-    }
-    function coupleStoryUpdate(CoupleStory $couplestory, Request $request)
-    {
-        $request->validate([
-            'description' => 'max:207'
-        ]);
+    //     CoupleStory::_store($request);
+    //     return back()->with('success', 'Sukses menambahkan data baru');
+    // }
+    // function coupleStoryUpdate(CoupleStory $couplestory, Request $request)
+    // {
+    //     $request->validate([
+    //         'description' => 'max:207'
+    //     ]);
 
-        CoupleStory::_update($couplestory, $request);
+    //     CoupleStory::_update($couplestory, $request);
 
-        return back()->with('success', 'Sukses memperbarui data');
-    }
-    function coupleStoryDelete(CoupleStory $couplestory)
-    {
-        CoupleStory::_delete($couplestory);
-        return back()->with('success', 'Sukses menghapus data');
-    }
+    //     return back()->with('success', 'Sukses memperbarui data');
+    // }
+    // function coupleStoryDelete(CoupleStory $couplestory)
+    // {
+    //     CoupleStory::_delete($couplestory);
+    //     return back()->with('success', 'Sukses menghapus data');
+    // }
 }

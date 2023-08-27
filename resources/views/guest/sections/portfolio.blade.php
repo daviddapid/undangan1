@@ -1,3 +1,11 @@
+@push('style')
+  <link rel="stylesheet" href="{{ asset('guest/assets/css/portfolio-section.css') }}">
+@endpush
+@push('script')
+  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+    integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async>
+  </script>
+@endpush
 <!-- start wpo-portfolio-section -->
 <section class="wpo-portfolio-section section-padding" id="gallery">
   <div class="container">
@@ -16,8 +24,8 @@
           <div class="portfolio-grids gallery-container clearfix">
             <div class="grid">
               <div class="img-holder">
-                <a href="guest/assets/images/portfolio/1.jpg" class="fancybox" data-fancybox-group="gall-1">
-                  <img src="guest/assets/images/portfolio/1.jpg" alt class="img img-responsive" />
+                <a href="{{ asset('storage/' . $photos[0]->photo) }}" class="fancybox" data-fancybox-group="gall-1">
+                  <img src="{{ asset('storage/' . $photos[0]->photo) }}" alt class="img img-responsive img-potrait" />
                   <div class="hover-content">
                     <i class="ti-plus"></i>
                   </div>
@@ -26,8 +34,8 @@
             </div>
             <div class="grid">
               <div class="img-holder">
-                <a href="guest/assets/images/portfolio/2.jpg" class="fancybox" data-fancybox-group="gall-1">
-                  <img src="guest/assets/images/portfolio/2.jpg" alt class="img img-responsive" />
+                <a href="{{ asset('storage/' . $photos[1]->photo) }}" class="fancybox" data-fancybox-group="gall-1">
+                  <img src="{{ asset('storage/' . $photos[1]->photo) }}" alt class="img img-responsive img-square" />
                   <div class="hover-content">
                     <i class="ti-plus"></i>
                   </div>
@@ -36,8 +44,8 @@
             </div>
             <div class="grid">
               <div class="img-holder">
-                <a href="guest/assets/images/portfolio/3.jpg" class="fancybox" data-fancybox-group="gall-1">
-                  <img src="guest/assets/images/portfolio/3.jpg" alt class="img img-responsive" />
+                <a href="{{ asset('storage/' . $photos[2]->photo) }}" class="fancybox" data-fancybox-group="gall-1">
+                  <img src="{{ asset('storage/' . $photos[2]->photo) }}" alt class="img img-responsive img-potrait" />
                   <div class="hover-content">
                     <i class="ti-plus"></i>
                   </div>
@@ -46,8 +54,8 @@
             </div>
             <div class="grid">
               <div class="img-holder">
-                <a href="guest/assets/images/portfolio/5.jpg" class="fancybox" data-fancybox-group="gall-1">
-                  <img src="guest/assets/images/portfolio/5.jpg" alt class="img img-responsive" />
+                <a href="{{ asset('storage/' . $photos[3]->photo) }}" class="fancybox" data-fancybox-group="gall-1">
+                  <img src="{{ asset('storage/' . $photos[3]->photo) }}" alt class="img img-responsive img-potrait" />
                   <div class="hover-content">
                     <i class="ti-plus"></i>
                   </div>
@@ -56,8 +64,8 @@
             </div>
             <div class="grid">
               <div class="img-holder">
-                <a href="guest/assets/images/portfolio/4.jpg" class="fancybox" data-fancybox-group="gall-1">
-                  <img src="guest/assets/images/portfolio/4.jpg" alt class="img img-responsive" />
+                <a href="{{ asset('storage/' . $photos[4]->photo) }}" class="fancybox" data-fancybox-group="gall-1">
+                  <img src="{{ asset('storage/' . $photos[4]->photo) }}" alt class="img img-responsive img-square" />
                   <div class="hover-content">
                     <i class="ti-plus"></i>
                   </div>
@@ -66,8 +74,8 @@
             </div>
             <div class="grid">
               <div class="img-holder">
-                <a href="guest/assets/images/portfolio/6.jpg" class="fancybox" data-fancybox-group="gall-1">
-                  <img src="guest/assets/images/portfolio/6.jpg" alt class="img img-responsive" />
+                <a href="{{ asset('storage/' . $photos[5]->photo) }}" class="fancybox" data-fancybox-group="gall-1">
+                  <img src="{{ asset('storage/' . $photos[5]->photo) }}" alt class="img img-responsive img-square" />
                   <div class="hover-content">
                     <i class="ti-plus"></i>
                   </div>

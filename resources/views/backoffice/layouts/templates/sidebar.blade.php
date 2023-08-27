@@ -57,12 +57,12 @@
 
   <ul class="menu-inner py-1">
     <!-- Dashboard -->
-    <li class="menu-item @yield('nav-dashboard')">
+    {{-- <li class="menu-item @yield('nav-dashboard')">
       <a href="index.html" class="menu-link">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
         <div data-i18n="Analytics">Dashboard</div>
       </a>
-    </li>
+    </li> --}}
     <li class="menu-item @yield('nav-tamu-undangan')">
       <a href="{{ route('tamu-undangan') }}" class="menu-link">
         <i class="menu-icon tf-icons bx bx-group"></i>
@@ -84,6 +84,12 @@
     <li class="menu-header small text-uppercase">
       <span class="menu-header-text">Master Data</span>
     </li>
+    <li class="menu-item @yield('nav-couple-bio')">
+      <a href="{{ route('master.coupleBio.index') }}" class="menu-link">
+        <i class='menu-icon tf-icons bx bx-user-pin'></i>
+        <div data-i18n="Basic">Couple Bio</div>
+      </a>
+    </li>
     <li class="menu-item @yield('nav-waktu-acara')">
       <a href="{{ route('master.waktu-acara') }}" class="menu-link">
         <i class='menu-icon tf-icons bx bx-time-five'></i>
@@ -96,5 +102,24 @@
         <div data-i18n="Basic">Couple Story</div>
       </a>
     </li>
+    <li class="menu-item @yield('nav-couple-photos')">
+      <a href="{{ route('master.couplePhotos.index') }}" class="menu-link">
+        <i class='menu-icon tf-icons bx bx-photo-album'></i>
+        <div data-i18n="Basic">Couple Photos</div>
+      </a>
+    </li>
+    <li class="menu-item @yield('nav-locations')">
+      <a href="{{ route('master.locations.index') }}" class="menu-link">
+        <i class='menu-icon tf-icons  bx bx-map'></i>
+        <div data-i18n="Basic">Locations</div>
+      </a>
+    </li>
+
+    {{-- <li class="menu-item @yield('nav-video')">
+      <a href="{{ route('master.couplePhotos.index') }}" class="menu-link">
+        <i class='menu-icon tf-icons bx bx-movie-play'></i>
+        <div data-i18n="Basic">Video</div>
+      </a>
+    </li> --}}
   </ul>
 </aside>

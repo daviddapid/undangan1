@@ -14,7 +14,7 @@ class DashboardC extends Controller
             ->latest()
             ->with('user')
             ->get();
-        return view('backoffice.dashboard', compact('guests'));
+        return view('backoffice.tamu.list-guests', compact('guests'));
     }
     public function listGuest()
     {

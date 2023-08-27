@@ -1,0 +1,67 @@
+.empty-img {
+    background-color: #80808059;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.mask-edit {
+    background-color: #80808059;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    display: flex;
+}
+
+.mask-edit>i {
+    font-size: 89px;
+    color: white;
+}
+
+.wrapper-potrait:hover .mask-edit,
+.wrapper-square:hover .mask-edit {
+    opacity: 1;
+}
+
+.empty-img:hover {
+    box-shadow: inset 0 0 19px rgb(0 0 0 / 45%);
+}
+
+.empty-img>i {
+    font-size: 89px;
+}
+
+.wrapper-potrait {
+    width: 426px;
+    height: 574px;
+    object-fit: cover;
+    position: relative;
+}
+
+.wrapper-square {
+    width: 426px;
+    height: 410px;
+    object-fit: cover;
+    position: relative;
+}
+
+.img-potrait {
+    width: 426px;
+    height: 574px;
+    object-fit: cover;
+}
+
+.img-square {
+    width: 426px;
+    height: 410px;
+    object-fit: cover;
+}

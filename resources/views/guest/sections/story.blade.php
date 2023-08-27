@@ -21,7 +21,7 @@
            </div>
            @foreach ($stories as $i => $s)
              @if ($i % 2 == 0)
-               <div class="story-timeline-item">
+               <div class="story-timeline-item @if ($i == 0) s1 @endif">
                  <div class="row align-items-center">
                    <div class="col col-lg-6 col-12">
                      <div class="img-holder right-align-text left-site right-heart">

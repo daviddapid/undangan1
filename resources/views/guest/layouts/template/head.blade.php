@@ -37,6 +37,7 @@
 
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 
+  <link rel="stylesheet" href="{{ asset('guest/assets/section-css/comment-section.css') }}">
   <style>
     .shadow {
       box-shadow: 0 5px 9px #80808033 !important;
@@ -48,6 +49,7 @@
   </style>
 
   @yield('head')
+  @stack('style')
 </head>
 
 <body>

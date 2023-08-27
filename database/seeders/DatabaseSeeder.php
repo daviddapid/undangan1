@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\CoupleBio;
+use App\Models\CouplePhoto;
 use App\Models\DDay;
 use App\Models\Guest;
 use App\Models\User;
@@ -32,11 +34,32 @@ class DatabaseSeeder extends Seeder
             'role' => 'superadmin'
         ]);
         DDay::create([
-            'date_time' => date('Y-m-d', strtotime('tomorrow'))
+            'date_time' => date('Y-m-d', strtotime('now'))
         ]);
+        $this->generateCouplePhotos();
     }
 
-
+    private function generateCouplePhotos()
+    {
+        CouplePhoto::create([
+            'type' => 'potrait',
+        ]);
+        CouplePhoto::create([
+            'type' => 'square',
+        ]);
+        CouplePhoto::create([
+            'type' => 'potrait',
+        ]);
+        CouplePhoto::create([
+            'type' => 'potrait',
+        ]);
+        CouplePhoto::create([
+            'type' => 'square',
+        ]);
+        CouplePhoto::create([
+            'type' => 'square',
+        ]);
+    }
     private function generate30Guest()
     {
         for ($i = 4; $i <= 30; $i++) {

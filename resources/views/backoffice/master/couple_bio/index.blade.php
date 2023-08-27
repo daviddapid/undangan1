@@ -1,5 +1,5 @@
 @extends('backoffice.layouts.app')
-@section('nav-couple-story', 'active')
+@section('nav-couple-bio', 'active')
 @section('style')
   <link rel="stylesheet" href="{{ asset('backoffice/plugins/dropify-master/dist/css/dropify.min.css') }}">
 @endsection
@@ -10,15 +10,6 @@
         icon: 'success',
         title: 'Sukses',
         text: "{{ session('success') }}",
-      })
-    </script>
-  @endif
-  @if (session('exception'))
-    <script>
-      Swal.fire({
-        icon: 'success',
-        title: 'Sukses',
-        text: "{{ session('exception') }}",
       })
     </script>
   @endif
@@ -40,12 +31,14 @@
       }
     });
 
-    function handleEdit(url, pathPhoto, story) {
+    function handleEdit(url, pathPhoto, bio) {
       $('#form-update').attr('action', url);
       $('#photo-edit').data('default-file', pathPhoto);
-      $('#title-edit').val(story.title);
-      $('#date-edit').val(story.date);
-      $('#description-edit').val(story.description);
+      $('#name-edit').val(bio.name);
+      $('#instagram-edit').val(bio.instagram);
+      $('#facebook-edit').val(bio.facebook);
+      $('#twitter-edit').val(bio.twitter);
+      $('#description-edit').val(bio.description);
       $('.dropify-edit').dropify({
         tpl: {
           message: '<div class="dropify-message"><span class="file-icon" /> <p></p></div>',
@@ -66,36 +59,59 @@
         <ol class="breadcrumb d-flex align-items-center">
           <li class="breadcrumb-item fs-4  "><a href="#">Master Data</a>
           <li class="breadcrumb-item fs-4 text-primary active"><a href="{{ route('admin.comment.index') }}">Couple
-              Story</a>
+              Bio</a>
           </li>
         </ol>
       </nav>
       <div>
         <button class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#modal-add">
           <i class='bx bx-plus align-text-top'></i>
-          <span>Add Story</span>
+          <span>Add Bio</span>
         </button>
       </div>
     </div>
     <div class="row">
-      @foreach ($stories as $s)
-        <div class="col-lg-4 mb-4">
+      @foreach ($couple_bios as $b)
+        <div class="col-lg-6 mb-4">
           <div class="card h-100">
-            <img src="{{ asset('storage/' . $s->photo) }}" class="card-img-top" alt="photo"
+            <img src="{{ asset('storage/' . $b->photo) }}" class="card-img-top" alt="photo"
               style="height: 250px; object-fit: cover;">
-            <div class="card-body">
-              <h4 class="card-title fw-bold">{{ $s->title }}</h4>
-              <h6 class="card-subtitle text-muted">{{ $s->formatedDate() }}</h6>
-              <p class="card-text mt-4">{{ Str::limit($s->description, 200) }}</p>
+            <div class="card-body px-0">
+              <table class="table">
+                <tr>
+                  <td style="width: 19px" class="fw-bold">Name</td>
+                  <td style="width: 9px" class="px-0">:</td>
+                  <td>{{ $b->name }}</td>
+                </tr>
+                <tr>
+                  <td style="width: 19px" class="fw-bold">Instagram</td>
+                  <td class="px-0">:</td>
+                  <td>{{ $b->instagram }}</td>
+                </tr>
+                <tr>
+                  <td style="width: 19px" class="fw-bold">Facebook</td>
+                  <td class="px-0">:</td>
+                  <td>{{ $b->facebook }}</td>
+                </tr>
+                <tr>
+                  <td style="width: 19px" class="fw-bold">Twitter</td>
+                  <td class="px-0">:</td>
+                  <td>{{ $b->twitter }}</td>
+                </tr>
+              </table>
+              <div class="px-4">
+                <p class="mb-2 mt-4 fw-bold">Description</p>
+                <p>{{ $b->description }}</p>
+              </div>
             </div>
             <div class="card-footer border-top d-flex justify-content-end">
               <button class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#modal-delete"
-                onclick="handleDelete('{{ route('master.coupleStory.destroy', $s->id) }}')">
+                onclick="handleDelete('{{ route('master.coupleBio.destroy', $b->id) }}')">
                 <i class='align-text-bottom bx bx-trash'></i>
                 <span>Delete</span>
               </button>
               <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modal-edit"
-                onclick="handleEdit('{{ route('master.coupleStory.update', $s->id) }}', '{{ asset('storage/' . $s->photo) }}', {{ $s }})">
+                onclick="handleEdit('{{ route('master.coupleBio.update', $b->id) }}', '{{ asset('storage/' . $b->photo) }}', {{ $b }})">
                 <i class='align-text-bottom bx bxs-edit'></i>
                 <span>Edit</span>
               </button>
@@ -110,11 +126,11 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modal-addLabel">Add Couple Story</h1>
+          <h1 class="modal-title fs-5" id="modal-addLabel">Add Couple Bio</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="{{ route('master.coupleStory.store') }}" method="post" id="form-store"
+          <form action="{{ route('master.coupleBio.store') }}" method="post" id="form-store"
             enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
@@ -123,18 +139,37 @@
                 data-allowed-file-extensions="jpg jpeg png webp" required />
             </div>
             <div class="mb-3">
-              <label for="title-store" class="form-label">Title</label>
-              <input id="title-store" type="text" class="form-control" name="title" required>
+              <label for="title-store" class="form-label">Name</label>
+              <input id="title-store" type="text" class="form-control" name="name" required>
             </div>
-            <div class="mb-3">
-              <label for="date-store" class="form-label">Date</label>
-              <input id="date-store" type="date" class="form-control" name="date" required>
+            <div class="row">
+              <label for="" class="form-label">Social Media <span class="text-muted">(optional)</span></label>
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  {{-- <label for="instagram-store" class="form-label">Instagram</label> --}}
+                  <input id="instagram-store" type="text" class="form-control" name="instagram"
+                    placeholder="instagram">
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  {{-- <label for="facebook-store" class="form-label">Facebook</label> --}}
+                  <input id="facebook-store" type="text" class="form-control" name="facebook" placeholder="facebook">
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  {{-- <label for="twitter-store" class="form-label">Twitter</label> --}}
+                  <input id="twitter-store" type="text" class="form-control" name="twitter" placeholder="twitter">
+                </div>
+              </div>
             </div>
+
             <div class="mb-3">
               <label for="description-store"
                 class="form-label @error('description') text-danger @enderror">Description</label>
               <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description-store"
-                cols="30" rows="10" required maxlength="207"></textarea>
+                cols="30" rows="10" required maxlength="219"></textarea>
               @error('description')
                 <small class="text-danger">{{ $message }}</small>
               @enderror
@@ -166,12 +201,31 @@
                 data-allowed-file-extensions="jpg jpeg png webp" />
             </div>
             <div class="mb-3">
-              <label for="title-edit" class="form-label">Title</label>
-              <input id="title-edit" type="text" class="form-control" name="title">
+              <label for="name-edit" class="form-label">Name</label>
+              <input id="name-edit" type="text" class="form-control" name="name" required>
             </div>
-            <div class="mb-3">
-              <label for="date-edit" class="form-label">Date</label>
-              <input id="date-edit" type="date" class="form-control" name="date">
+            <div class="row">
+              <label for="" class="form-label">Social Media <span class="text-muted">(optional)</span></label>
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  {{-- <label for="instagram-edit" class="form-label">Instagram</label> --}}
+                  <input id="instagram-edit" type="text" class="form-control" name="instagram"
+                    placeholder="instagram">
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  {{-- <label for="facebook-edit" class="form-label">Facebook</label> --}}
+                  <input id="facebook-edit" type="text" class="form-control" name="facebook"
+                    placeholder="facebook">
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  {{-- <label for="twitter-edit" class="form-label">Twitter</label> --}}
+                  <input id="twitter-edit" type="text" class="form-control" name="twitter" placeholder="twitter">
+                </div>
+              </div>
             </div>
             <div class="mb-3">
               <label for="description-edit"
@@ -196,7 +250,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modal-deleteLabel">Delete Couple Story</h1>
+          <h1 class="modal-title fs-5" id="modal-deleteLabel">Delete Couple Bio</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">

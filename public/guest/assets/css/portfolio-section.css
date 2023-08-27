@@ -1,0 +1,11 @@
+.img-potrait {
+    width: 426.450px;
+    height: 574.062px;
+    object-fit: cover;
+}
+
+.img-square {
+    width: 426.450px;
+    height: 410.038px;
+    object-fit: cover;
+}

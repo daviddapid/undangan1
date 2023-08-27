@@ -6,8 +6,12 @@ use App\Http\Controllers\admin\CommentC;
 use App\Http\Controllers\admin\DashboardC;
 use App\Http\Controllers\admin\MasterController;
 use App\Http\Controllers\admin\TamuC;
+use App\Http\Controllers\CoupleBioController;
+use App\Http\Controllers\CouplePhotoC;
+use App\Http\Controllers\CoupleStoryC;
 use App\Http\Controllers\guest\HomeC;
 use App\Http\Controllers\guest\RsvpC;
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\QrController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -45,13 +49,13 @@ Route::controller(AuthC::class)->group(function () {
 Route::middleware('admin')->prefix('admin')->group(function () {
 
     Route::controller(DashboardC::class)->group(function () {
-        Route::get('/', 'index')->name('dashboard');
         Route::get('/dashboard/daftar-tamu', 'listGuest')->name('dashboard.guest');
 
         Route::get('/scan-qr', 'scanQr')->name('scan');
     });
     // useless?
     Route::controller(TamuC::class)->group(function () {
+        Route::get('/', 'index')->name('dashboard');
         Route::get('/tamu-undangan', 'index')->name('tamu-undangan');
         Route::get('/tamu-undangan/{guest}/qr-code', 'qrCode')->name('tamu-undangan.qrCode');
     });
@@ -63,11 +67,12 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::controller(MasterController::class)->prefix('master')->name('master.')->group(function () {
         Route::get('/waktu-acara', 'waktuAcara')->name('waktu-acara');
         Route::post('/waktu-acara/{dday}', 'setWaktuAcara')->name('waktu-acara.update');
-
-        Route::get('/couple-story', 'coupleStory')->name('coupleStory.index');
-        Route::post('/couple-story', 'coupleStoryStore')->name('coupleStory.store');
-        Route::put('/couple-story/{couplestory}', 'coupleStoryUpdate')->name('coupleStory.update');
-        Route::delete('/couple-story/{couplestory}', 'coupleStoryDelete')->name('coupleStory.delete');
+    });
+    Route::prefix('master')->name('master.')->group(function () {
+        Route::resource('coupleStory', CoupleStoryC::class);
+        Route::resource('couplePhotos', CouplePhotoC::class);
+        Route::resource('coupleBio', CoupleBioController::class);
+        Route::resource('locations', LocationController::class);
     });
 });
 

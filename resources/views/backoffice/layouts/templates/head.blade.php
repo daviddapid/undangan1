@@ -69,7 +69,6 @@
       border-radius: 39px !important;
     }
   </style>
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
   @yield('style')
 </head>
 

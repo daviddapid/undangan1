@@ -1,6 +1,6 @@
-@section('head')
+@push('style')
   <link rel="stylesheet" href="{{ asset('guest/assets/section-css/comment-section.css') }}">
-@endsection
+@endpush
 
 <!-- start comments-section -->
 <section class="wpo-blog-section section-padding" id="comments">
@@ -47,9 +47,13 @@
 
         <form method="post" action="{{ route('send-comment') }}" class="contact-validation-active">
           @csrf
-          <input placeholder="Name" type="text" class="form-control mb-3" name="name" required maxlength="28">
+          <input placeholder="Name" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="max character 28"
+            type="text" class="form-control mb-3" name="name" required maxlength="28">
+
           <textarea name="message" placeholder="Message" class="form-control" id="" cols="30" rows="10"
-            style="height: 100px" required maxlength="159"></textarea>
+            style="height: 100px" required maxlength="159" data-bs-toggle="tooltip" data-bs-placement="left"
+            data-bs-title="max character 159"></textarea>
+
           <div class="submit-area">
             <button type="submit" class="theme-btn-s3">
               Kirim kartu ucapan

@@ -6,12 +6,12 @@
 
   @include('guest.sections.hero')
   @include('guest.sections.couple')
-  @include('guest.sections.video')
+  {{-- @include('guest.sections.video') --}}
   @include('guest.sections.story')
   @include('guest.sections.wpo-cta')
   @include('guest.sections.portfolio')
   @include('guest.sections.contact')
-  @include('guest.sections.team')
+  {{-- @include('guest.sections.team') --}}
   @include('guest.sections.event')
   {{-- @include('guest.sections.partner') --}}
   @include('guest.sections.comment')
