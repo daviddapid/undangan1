@@ -1,10 +1,9 @@
 @extends('backoffice.layouts.app')
 @section('nav-couple-photos', 'active')
 @section('style')
-  <link rel="stylesheet" href="{{ asset('backoffice/plugins/dropify-master/dist/css/dropify.min.css') }}">
   <link rel="stylesheet" href="{{ asset('backoffice/assets/css/couplePhotos.css') }}">
 @endsection
-@section('script')
+@push('script-stack')
   <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
     integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async>
   </script>
@@ -28,12 +27,13 @@
     </script>
   @endif
 
-  <script src="{{ asset('backoffice/plugins/dropify-master/dist/js/dropify.min.js') }}"></script>
   <script>
     function handleEdit(url, pathPhoto) {
       $('#form-edit').attr('action', url);
-      // $('#photo-edit').data('default-file', pathPhoto);
-
+      console.log(pathPhoto);
+      $('#wrapper-dropify').html(`
+        <input id="photo-edit" type="file" class="dropify-edit" name="photo" data-allowed-file-extensions="jpg jpeg png webp" data-default-file="${pathPhoto}" required />
+      `);
       $('.dropify-edit').dropify({
         tpl: {
           message: '<div class="dropify-message"><span class="file-icon" /> <p></p></div>',
@@ -41,7 +41,7 @@
       });
     }
   </script>
-@endsection
+@endpush
 @section('content')
 
   <div class="container-xxl flex-grow-1 container-p-y">
@@ -68,7 +68,7 @@
                 </div>
               @else
                 <div class="empty-img" data-bs-toggle="modal" data-bs-target="#modal-edit"
-                  onclick="handleEdit('{{ route('master.couplePhotos.update', $p->id) }}', '{{ asset('storage/' . $p->photo) }}')">
+                  onclick="handleEdit('{{ route('master.couplePhotos.update', $p->id) }}', null)">
                   <i class='bx bxs-edit'></i>
                 </div>
               @endif
@@ -85,7 +85,7 @@
                 </div>
               @else
                 <div class="empty-img" data-bs-toggle="modal" data-bs-target="#modal-edit"
-                  onclick="handleEdit('{{ route('master.couplePhotos.update', $p->id) }}', '{{ asset('storage/' . $p->photo) }}')">
+                  onclick="handleEdit('{{ route('master.couplePhotos.update', $p->id) }}', null)">
                   <i class='bx bxs-edit'></i>
                 </div>
               @endif
@@ -107,9 +107,8 @@
           <form method="post" id="form-edit" enctype="multipart/form-data">
             @csrf
             @method('put')
-            <div>
-              <input id="photo-edit" type="file" class="dropify-edit" name="photo"
-                data-allowed-file-extensions="jpg jpeg png webp" required />
+            <div id="wrapper-dropify">
+
             </div>
           </form>
         </div>

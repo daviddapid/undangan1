@@ -7,6 +7,7 @@ use App\Models\Comment;
 use App\Models\CoupleBio;
 use App\Models\CouplePhoto;
 use App\Models\CoupleStory;
+use App\Models\CoverPhoto;
 use App\Models\DDay;
 use App\Models\Location;
 use Carbon\Carbon;
@@ -26,8 +27,9 @@ class HomeC extends Controller
         $photos = CouplePhoto::all();
         $couples_bio = CoupleBio::all();
         $locations = Location::all();
+        $cover_photo = CoverPhoto::first();
 
-        return view('guest.home', compact('comments', 'user', 'countDownTime', 'stories', 'photos', 'couples_bio', 'ddate', 'locations'));
+        return view('guest.home', compact('comments', 'user', 'countDownTime', 'stories', 'photos', 'couples_bio', 'ddate', 'locations', 'cover_photo'));
     }
     public function sendComment(Request $request)
     {

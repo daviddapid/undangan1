@@ -84,6 +84,12 @@
     <li class="menu-header small text-uppercase">
       <span class="menu-header-text">Master Data</span>
     </li>
+    <li class="menu-item @yield('nav-cover-photo')">
+      <a href="{{ route('master.coverPhoto.index') }}" class="menu-link">
+        <i class='menu-icon tf-icons bx bx-image-alt'></i>
+        <div data-i18n="Basic">Cover Photo</div>
+      </a>
+    </li>
     <li class="menu-item @yield('nav-couple-bio')">
       <a href="{{ route('master.coupleBio.index') }}" class="menu-link">
         <i class='menu-icon tf-icons bx bx-user-pin'></i>

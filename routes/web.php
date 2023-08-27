@@ -9,10 +9,12 @@ use App\Http\Controllers\admin\TamuC;
 use App\Http\Controllers\CoupleBioController;
 use App\Http\Controllers\CouplePhotoC;
 use App\Http\Controllers\CoupleStoryC;
+use App\Http\Controllers\CoverPhotoC;
 use App\Http\Controllers\guest\HomeC;
 use App\Http\Controllers\guest\RsvpC;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\QrController;
+use App\Models\CoverPhoto;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -73,6 +75,7 @@ Route::middleware('admin')->prefix('admin')->group(function () {
         Route::resource('couplePhotos', CouplePhotoC::class);
         Route::resource('coupleBio', CoupleBioController::class);
         Route::resource('locations', LocationController::class);
+        Route::resource('coverPhoto', CoverPhotoC::class);
     });
 });
 

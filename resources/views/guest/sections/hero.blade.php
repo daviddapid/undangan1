@@ -34,7 +34,8 @@
   <div class="static-hero-right">
     <div class="static-hero-img">
       <div class="static-hero-img-inner">
-        <img src="guest/assets/images/slider/s1.png" alt="" />
+        <img src="{{ asset('storage/' . $cover_photo->photo) }}"
+          style="width: 560px;height: 741px; object-fit: contain;" alt="" />
       </div>
       <div class="static-hero-shape-1 floating-item">
         <img src="guest/assets/images/slider/flower1.png" alt="" />

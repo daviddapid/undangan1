@@ -10,7 +10,8 @@
               <div class="row align-items-center">
                 <div class="col-lg-4">
                   <div class="couple-img">
-                    <img src="guest/assets/images/couple/2.jpg" alt="" />
+                    <img src="{{ asset('storage/' . $couples_bio[0]->photo) }}" alt=""
+                      style="width: 340px; height: 340px; object-fit: cover;" />
                   </div>
                 </div>
                 <div class="col-lg-7">
@@ -73,7 +74,8 @@
                 </div>
                 <div class="col-lg-4 order-lg-2 order-1">
                   <div class="couple-img">
-                    <img src="guest/assets/images/couple/3.jpg" alt="" />
+                    <img src="{{ asset('storage/' . $couples_bio[1]->photo) }}" alt=""
+                      style="width: 340px; height: 340px; object-fit: cover;" />
                   </div>
                 </div>
               </div>

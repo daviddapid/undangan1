@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\CoupleBio;
 use App\Models\CouplePhoto;
+use App\Models\CoverPhoto;
 use App\Models\DDay;
 use App\Models\Guest;
 use App\Models\User;
@@ -37,6 +38,9 @@ class DatabaseSeeder extends Seeder
             'date_time' => date('Y-m-d', strtotime('now'))
         ]);
         $this->generateCouplePhotos();
+        CoverPhoto::create([
+            'photo' => null
+        ]);
     }
 
     private function generateCouplePhotos()

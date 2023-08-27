@@ -13,6 +13,7 @@
 <script src="{{ asset('backoffice/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
 <script src="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.js"></script>
 <script src="{{ asset('backoffice/plugins/html5-qrcode.min.js') }}"></script>
+<script src="{{ asset('backoffice/plugins/dropify-master/dist/js/dropify.min.js') }}"></script>
 
 <!-- Main JS -->
 <script src="{{ asset('backoffice/assets/js/main.js') }}"></script>
@@ -20,7 +21,7 @@
 <!-- Page JS -->
 <script src="{{ asset('backoffice/assets/js/dashboards-analytics.js') }}"></script>
 @yield('script')
-
+@stack('script-stack')
 <!-- Place this tag in your head or just before your close body tag. -->
 {{-- <script async defer src="https://buttons.github.io/buttons.js"></script> --}}
 </body>

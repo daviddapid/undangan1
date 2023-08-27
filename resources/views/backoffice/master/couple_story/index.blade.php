@@ -42,7 +42,9 @@
 
     function handleEdit(url, pathPhoto, story) {
       $('#form-update').attr('action', url);
-      $('#photo-edit').data('default-file', pathPhoto);
+      $('#wrapper-dropify').html(`
+        <input id="photo-edit" type="file" class="dropify-edit" name="photo" data-allowed-file-extensions="jpg jpeg png webp" data-default-file="${pathPhoto}"/>
+      `);
       $('#title-edit').val(story.title);
       $('#date-edit').val(story.date);
       $('#description-edit').val(story.description);
@@ -162,8 +164,7 @@
             @method('put')
             <div class="mb-3">
               <label for="photo-edit" class="form-label">Photo</label>
-              <input id="photo-edit" type="file" class="dropify-edit" name="photo"
-                data-allowed-file-extensions="jpg jpeg png webp" />
+              <div id="wrapper-dropify"></div>
             </div>
             <div class="mb-3">
               <label for="title-edit" class="form-label">Title</label>
